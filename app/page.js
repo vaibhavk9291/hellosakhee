@@ -37,7 +37,7 @@ export default function Home() {
           <Link href="#features">Features</Link>
           <Link href="#rituals">Rituals</Link>
           <Link href="#community">Community</Link>
-          <Link href="#cta" className="nav-cta">Get Early Access</Link>
+          <Link href="#waitlist" className="nav-cta">Get Early Access</Link>
         </div>
       </nav>
 
@@ -59,7 +59,7 @@ export default function Home() {
             </h1>
             <p className="hero-sub fade-up">Meet Sakhee - your AI companion who remembers everything, shows up every morning, and helps you become the woman you're already becoming.</p>
             <div className="hero-ctas fade-up">
-              <Link href="#cta" className="btn-primary">✨ Start for Free</Link>
+              <Link href="#waitlist" className="btn-primary">✨ Start for Free</Link>
               <Link href="#how" className="btn-secondary">See how it works →</Link>
             </div>
             <div className="hero-social-proof fade-up">
@@ -293,7 +293,7 @@ export default function Home() {
         <div className="cta-eyebrow">✨ Your space. Your story. Your Sakhee.</div>
         <h2 className="cta-heading">Ready to meet<br/><span>Sakhee?</span></h2>
         <p className="cta-sub">Free to start. No credit card. Just you and Sakhee - building the life you keep putting off.</p>
-        <Link href="#" className="btn-primary" style={{fontSize: "18px", padding: "18px 48px", margin: "0 auto", display: "inline-flex"}}>
+        <Link href="#waitlist" className="btn-primary" style={{fontSize: "18px", padding: "18px 48px", margin: "0 auto", display: "inline-flex"}}>
           ✨ Get Started - It's Free
         </Link>
         <div className="app-badges">
