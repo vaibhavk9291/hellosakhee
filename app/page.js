@@ -314,6 +314,16 @@ export default function Home() {
         </div>
       </section>
 
+      {/* WAITLIST QR */}
+      <section id="waitlist" style={{ background: "var(--cream)", padding: "100px 5vw", textAlign: "center" }}>
+        <div className="section-inner fade-up" style={{ maxWidth: "500px", margin: "0 auto", background: "white", padding: "48px", borderRadius: "32px", boxShadow: "0 12px 40px rgba(196, 66, 110, 0.08)" }}>
+          <div className="section-label" style={{ marginBottom: "12px" }}>Early Access</div>
+          <h2 className="section-heading" style={{ fontSize: "32px", marginBottom: "16px" }}>Join the Waitlist</h2>
+          <p className="section-sub" style={{ fontSize: "15px", marginBottom: "40px", opacity: 0.7 }}>Scan this code with your phone camera to secure your spot before we launch.</p>
+          <img src="/qr.png" alt="Join Waitlist QR Code" style={{ width: "180px", height: "180px", borderRadius: "16px", padding: "8px", border: "2px solid rgba(0,0,0,0.05)", margin: "0 auto", display: "block" }} />
+        </div>
+      </section>
+
       {/* FOOTER */}
       <footer>
         <span className="footer-logo">Hello<span>Sakhee</span></span>
@@ -330,6 +340,7 @@ export default function Home() {
           <Link href="#">Community</Link>
           <Link href="#">Blog</Link>
         </div>
+
         <div className="footer-copy">© 2026 HelloSakhee.</div>
       </footer>
     </>
