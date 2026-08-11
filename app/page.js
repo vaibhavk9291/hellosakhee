@@ -22,8 +22,8 @@ export default function Home() {
     <div className="container">
       {/* HEADER */}
       <header className="header fade-up">
-        <Link href="/" className="header-logo">
-          HELLO SAKHEE
+        <Link href="/" className="header-logo" style={{display: 'flex', alignItems: 'center'}}>
+          <img src="/logo.png" alt="Hello Sakhee" style={{height: '24px', mixBlendMode: 'multiply', opacity: 0.9}} />
         </Link>
         <div className="header-links">
           <Link href="#about">ABOUT</Link>
