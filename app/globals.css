@@ -249,7 +249,7 @@ a {
 }
 
 .mock-top {
-  padding: 40px 16px 16px;
+  padding: 32px 16px 12px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -317,7 +317,7 @@ a {
 .mock-rituals {
   display: flex;
   justify-content: space-around;
-  padding: 16px 8px;
+  padding: 8px;
   align-items: flex-end;
 }
 
@@ -325,21 +325,21 @@ a {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 8px;
+  gap: 6px;
 }
 
 .r-circle {
-  width: 64px;
-  height: 64px;
-  border-radius: 32px;
+  width: 56px;
+  height: 56px;
+  border-radius: 28px;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 24px;
+  font-size: 20px;
 }
 
 .r-circle.yellow { background: #FFDCA8; }
-.r-circle.pink { background: #C4426E; width: 76px; height: 76px; border-radius: 38px; color: white; box-shadow: 0 8px 16px rgba(196,66,110,0.3); }
+.r-circle.pink { background: #C4426E; width: 66px; height: 66px; border-radius: 33px; color: white; box-shadow: 0 8px 16px rgba(196,66,110,0.3); }
 .r-circle.purple { background: #E6E0FA; }
 
 .r-name {
@@ -357,7 +357,7 @@ a {
 .mock-calendar {
   display: flex;
   gap: 8px;
-  padding: 16px;
+  padding: 8px 16px;
   overflow-x: hidden;
 }
 
@@ -365,7 +365,7 @@ a {
   background: white;
   border-radius: 20px;
   width: 38px;
-  padding: 12px 0;
+  padding: 8px 0;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -378,10 +378,10 @@ a {
 .cal-num { font-size: 16px; font-weight: 800; }
 
 .mock-task-card {
-  margin: 16px;
+  margin: 8px 16px 16px;
   background: #FCE1CB;
   border-radius: 24px;
-  padding: 24px;
+  padding: 20px;
   position: relative;
   overflow: hidden;
 }
@@ -390,18 +390,19 @@ a {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 24px;
+  margin-bottom: 16px;
 }
 
 .tc-icon {
   background: #E89E65;
   color: white;
-  width: 32px;
-  height: 32px;
-  border-radius: 10px;
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
   display: flex;
   justify-content: center;
   align-items: center;
+  font-size: 14px;
 }
 
 .tc-label {
@@ -422,11 +423,11 @@ a {
 
 .tc-title {
   font-family: var(--font-playfair);
-  font-size: 22px;
+  font-size: 18px;
   font-weight: 700;
   color: #111;
-  line-height: 1.3;
-  margin-bottom: 16px;
+  line-height: 1.2;
+  margin-bottom: 12px;
 }
 
 .tc-progress {
@@ -443,19 +444,19 @@ a {
 }
 
 .tc-tags {
-  font-size: 10px;
+  font-size: 9px;
   color: #B25A19;
-  font-weight: 600;
-  margin-bottom: 24px;
+  font-weight: 700;
+  margin-bottom: 16px;
 }
 
 .tc-btn {
   background: #333;
   color: white;
-  padding: 16px;
+  padding: 12px;
   border-radius: 100px;
   text-align: center;
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 700;
 }
 
