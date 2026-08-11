@@ -1,4 +1,300 @@
-"use client";
+const fs = require('fs');
+
+const cssContent = `
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Playfair+Display:ital,wght@0,600;0,700;0,900;1,600&display=swap');
+
+:root {
+  --bg: #F5EFE6;
+  --text: #2C2725;
+  --box-bg: #EAE0D5;
+  --box-dark: #262423;
+  --crimson: #C4426E;
+  
+  --font-nunito: 'Nunito', sans-serif;
+  --font-playfair: 'Playfair Display', serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: var(--font-nunito);
+  line-height: 1.5;
+  overflow-x: hidden;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* MINIMAL LAYOUT */
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 40px 24px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+.header-logo {
+  font-weight: 900;
+  font-size: 16px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+.header-links {
+  display: flex;
+  gap: 24px;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.header-links a {
+  opacity: 0.6;
+  transition: opacity 0.2s;
+}
+.header-links a:hover {
+  opacity: 1;
+}
+
+.hero-box {
+  background: var(--box-bg);
+  border-radius: 24px;
+  padding: 64px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 80px;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-content {
+  flex: 1;
+  max-width: 450px;
+  z-index: 2;
+}
+
+.hero-visual {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+  position: relative;
+  z-index: 1;
+}
+
+.eyebrow {
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin-bottom: 24px;
+  opacity: 0.7;
+}
+
+.h1 {
+  font-size: 52px;
+  font-weight: 900;
+  line-height: 1.1;
+  margin-bottom: 40px;
+}
+
+.sub {
+  font-size: 16px;
+  opacity: 0.8;
+  margin-bottom: 24px;
+}
+
+.launch-date {
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 24px;
+  display: block;
+}
+
+.btn-dark {
+  background: var(--box-dark);
+  color: white;
+  padding: 16px 32px;
+  border-radius: 100px;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  display: inline-block;
+  transition: transform 0.2s, opacity 0.2s;
+}
+.btn-dark:hover {
+  transform: scale(1.02);
+  opacity: 0.9;
+}
+
+.section-left {
+  margin-bottom: 80px;
+}
+
+.h2 {
+  font-size: 36px;
+  font-weight: 900;
+  line-height: 1.2;
+  margin-bottom: 32px;
+}
+
+.p-text {
+  font-size: 16px;
+  opacity: 0.8;
+  margin-bottom: 16px;
+  line-height: 1.5;
+}
+
+.dark-box {
+  background: var(--box-dark);
+  color: white;
+  border-radius: 24px;
+  padding: 64px;
+  margin-bottom: 80px;
+}
+
+.dark-box .h2 {
+  color: white;
+}
+
+.inline-features {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  font-size: 16px;
+  margin-top: 32px;
+}
+
+.footer-closing {
+  font-weight: 900;
+  font-size: 14px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin-top: 80px;
+  margin-bottom: 80px;
+}
+
+.footer-bottom {
+  text-align: center;
+  padding-bottom: 40px;
+}
+
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  margin-top: 24px;
+  margin-bottom: 16px;
+}
+
+.social-icons a {
+  color: var(--text);
+  opacity: 0.5;
+  transition: opacity 0.2s;
+}
+
+.social-icons a:hover {
+  opacity: 1;
+}
+
+.contact-mail {
+  font-size: 14px;
+  font-weight: 700;
+  opacity: 0.7;
+}
+
+/* PHONE MOCKUP ANIMATIONS */
+.phone-mock {
+  width: 280px;
+  background: white;
+  border: 14px solid #111;
+  border-radius: 40px;
+  overflow: hidden;
+  box-shadow: 0 24px 60px rgba(0,0,0,0.1);
+  position: relative;
+  animation: float 6s ease-in-out infinite;
+}
+.notch {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 120px;
+  height: 24px;
+  background: #111;
+  border-bottom-left-radius: 16px;
+  border-bottom-right-radius: 16px;
+  z-index: 10;
+}
+.mock-header {
+  padding: 40px 20px 20px;
+  background: var(--cream);
+}
+.mock-greeting { font-size: 20px; font-weight: 800; }
+.mock-date { font-size: 12px; color: var(--text-mid); font-weight: 700; margin-top: 4px; }
+.mock-body { padding: 20px; background: #FAFAFA; height: 350px; }
+.mock-card { background: white; padding: 16px; border-radius: 16px; margin-bottom: 16px; box-shadow: 0 4px 12px rgba(0,0,0,0.03); }
+.mc-title { font-size: 14px; font-weight: 800; display: flex; justify-content: space-between; margin-bottom: 8px;}
+.mc-desc { font-size: 12px; color: var(--text-mid); line-height: 1.4;}
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+  100% { transform: translateY(0px); }
+}
+
+.fade-up {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.fade-up.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (max-width: 768px) {
+  .hero-box {
+    flex-direction: column;
+    padding: 40px 24px;
+    text-align: center;
+  }
+  .hero-visual {
+    margin-top: 48px;
+    justify-content: center;
+  }
+  .inline-features {
+    flex-direction: column;
+    gap: 12px;
+  }
+  .h1 { font-size: 40px; }
+  .h2 { font-size: 28px; }
+}
+`;
+
+const jsContent = \`"use client";
 import React, { useEffect } from 'react';
 import Link from 'next/link';
 
@@ -36,7 +332,7 @@ export default function Home() {
         <div className="hero-content">
           <div className="eyebrow">HELLO, SAKHEE.</div>
           <h1 className="h1">Log kya kahenge?<br/>— Not anymore.</h1>
-          <p className="sub">Daily companion for the Indian woman<br/>who doesn't want to settle.</p>
+          <p className="sub">Daily companion for the Indian woman who doesn't want to settle.</p>
           <span className="launch-date">LAUNCHING 28 AUGUST 2026</span>
           <Link href="#waitlist" className="btn-dark">BE THE FIRST TO KNOW</Link>
         </div>
@@ -68,7 +364,7 @@ export default function Home() {
         <h2 className="h2">You don't need another app<br/>telling you how to live.</h2>
         <p className="p-text">You need something that understands that your life isn't a checklist.</p>
         <p className="p-text">Your ambitions. Your messy days. Your small wins.<br/>Your big plans. The things you don't always say out loud.</p>
-        <p className="p-text" style={{marginTop: "24px"}}>That's why we're building Sakhee.</p>
+        <p className="p-text">That's why we're building Sakhee.</p>
       </section>
 
       {/* CURIOSITY */}
@@ -109,3 +405,8 @@ export default function Home() {
     </div>
   );
 }
+\`;
+
+fs.writeFileSync('app/globals.css', cssContent);
+fs.writeFileSync('app/page.js', jsContent);
+console.log('Minimalist redesign applied.');
