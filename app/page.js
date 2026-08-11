@@ -26,8 +26,8 @@ export default function Home() {
           <img src="/logo2.png" alt="Hello Sakhee" style={{height: '140px', opacity: 0.95}} />
         </Link>
         <div className="header-links">
-          <Link href="#about">ABOUT</Link>
-          <Link href="#waitlist">JOIN THE WAITLIST</Link>
+          <a href="#about">ABOUT</a>
+          <a href="#waitlist">JOIN THE WAITLIST</a>
         </div>
       </header>
 
@@ -38,7 +38,7 @@ export default function Home() {
           <h1 className="h1">Log kya kahenge?<br/>— Not anymore.</h1>
           <p className="sub">Daily companion for the Indian woman<br/>who doesn't want to settle.</p>
           <span className="launch-date">LAUNCHING 28 AUGUST 2026</span>
-          <Link href="#waitlist" className="btn-dark">BE THE FIRST TO KNOW</Link>
+          <a href="#waitlist" className="btn-dark">BE THE FIRST TO KNOW</a>
         </div>
         
         <div className="hero-visual">
