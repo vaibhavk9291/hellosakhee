@@ -23,7 +23,7 @@ export default function Home() {
       {/* HEADER */}
       <header className="header fade-up">
         <Link href="/" className="header-logo" style={{display: 'flex', alignItems: 'center'}}>
-          <img src="/logo2.png" alt="Hello Sakhee" style={{height: '56px', opacity: 0.95}} />
+          <img src="/logo2.png" alt="Hello Sakhee" style={{height: '140px', opacity: 0.95}} />
         </Link>
         <div className="header-links">
           <Link href="#about">ABOUT</Link>
