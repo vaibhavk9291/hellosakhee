@@ -42,92 +42,26 @@ export default function Home() {
         </div>
         
         <div className="hero-visual">
-          <div className="phone-mock">
+          <div className="phone-mock splash-screen">
             <div className="notch"></div>
             
-            <div className="mock-top">
-              <div className="mock-user">
-                <div className="mock-avatar">S</div>
-                <div>
-                  <div className="mock-greeting-text">Hi, <span>Sakhee</span></div>
-                  <div className="mock-time">Good evening</div>
+            <div className="splash-content">
+              <div className="splash-top">
+                <div className="splash-welcome">W E L C O M E &nbsp; T O</div>
+                <div className="splash-title">
+                  <span className="hello">Hello</span>
+                  <span className="sakhee">Sakhee</span>
+                </div>
+                <div className="splash-subtitle">
+                  Your Life. Your Rules.<br/>Every Single Day.
                 </div>
               </div>
-              <div className="mock-top-actions">
-                <div className="mock-pill">🔥 0</div>
-                <div className="mock-icon-btn">🔔</div>
-              </div>
-            </div>
-
-            <div className="mock-rituals">
-              <div className="ritual-item">
-                <div className="r-circle yellow">☀️</div>
-                <div className="r-name">Rise Sharp</div>
-                <div className="r-status">5 MIN</div>
-              </div>
-              <div className="ritual-item">
-                <div className="r-circle pink">✨</div>
-                <div className="r-name">Spark</div>
-                <div className="r-status">ONGOING</div>
-              </div>
-              <div className="ritual-item">
-                <div className="r-circle purple">🌙</div>
-                <div className="r-name">Close Strong</div>
-                <div className="r-status">8:00 PM</div>
-              </div>
-            </div>
-
-            <div className="mock-calendar">
-              <div className="cal-day past">
-                <span className="cal-dow">Sun</span>
-                <span className="cal-num">2</span>
-                <span style={{fontSize: "6px"}}>—</span>
-              </div>
-              <div className="cal-day active">
-                <span className="cal-dow">Mon</span>
-                <span className="cal-num">3</span>
-                <span style={{fontSize: "6px"}}>⚪</span>
-              </div>
-              <div className="cal-day">
-                <span className="cal-dow">Tue</span>
-                <span className="cal-num">4</span>
-              </div>
-              <div className="cal-day">
-                <span className="cal-dow">Wed</span>
-                <span className="cal-num">5</span>
-              </div>
-              <div className="cal-day">
-                <span className="cal-dow">Thu</span>
-                <span className="cal-num">6</span>
-              </div>
-              <div className="cal-day">
-                <span className="cal-dow">Fri</span>
-                <span className="cal-num">7</span>
-              </div>
-              <div className="cal-day">
-                <span className="cal-dow">Sat</span>
-                <span className="cal-num">8</span>
-              </div>
-            </div>
-
-            <div className="mock-task-card">
-              <div className="tc-header">
-                <div style={{display: "flex", gap: "8px", alignItems: "center"}}>
-                  <div className="tc-icon">📑</div>
-                  <div className="tc-label">TODAY'S TASK</div>
+              <div className="splash-bottom">
+                <button className="splash-btn">Get Started</button>
+                <div className="splash-login">
+                  Already have an account? <strong>Sign in</strong>
                 </div>
-                <div className="tc-pill">DAY 3/31</div>
               </div>
-              
-              <div className="tc-title">Hunger has different voices. Today you learn to tell them apart.</div>
-              
-              <div className="tc-progress"><div className="tc-progress-bar"></div></div>
-              
-              <div className="tc-tags">Check-in · Notice · Eat Well, Feel Well</div>
-              
-              <div className="tc-btn">Open today's task</div>
-              
-              <div className="mock-fab">💬</div>
             </div>
             
           </div>
