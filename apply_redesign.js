@@ -1,139 +1,45 @@
-"use client";
-import Link from 'next/link';
-import { useEffect } from 'react';
+const fs = require('fs');
+let content = fs.readFileSync('app/page.js', 'utf8');
 
-export default function Home() {
-
-  useEffect(() => {
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('show-scroll');
-        }
-      });
-    }, { threshold: 0.15, rootMargin: '0px 0px -50px 0px' });
-
-    const elements = document.querySelectorAll('.fade-up');
-    elements.forEach((el) => observer.observe(el));
-    return () => observer.disconnect();
-  }, []);
-
-  return (
-    <>
-      {/* NAV */}
-      <nav>
-        <Link href="#" className="nav-logo">
-          <svg width="32" height="32" viewBox="0 0 100 100" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
-            <circle cx="50" cy="50" r="42" strokeWidth="2.5" opacity="0.8" />
-            <path d="M 50 64 C 42 51, 45 31, 50 21 C 55 31, 58 51, 50 64 Z" />
-            <path d="M 45 54 C 30 51, 22 41, 25 31 C 32 38, 40 46, 45 54" />
-            <path d="M 55 54 C 70 51, 78 41, 75 31 C 68 38, 60 46, 55 54" />
-            <path d="M 50 66 C 36 54, 26 54, 26 66 C 26 78, 36 78, 50 66 C 64 54, 74 54, 74 66 C 74 78, 64 78, 50 66 Z" />
-          </svg>
-          Hello<span>Sakhee</span>
-        </Link>
-        <div className="nav-links">
+// 1. Update Nav Links
+content = content.replace(
+  /<div className="nav-links">[\s\S]*?<\/div>/,
+  `<div className="nav-links">
           <Link href="#hero">Home</Link>
           <Link href="#why-sakhee">About Sakhee</Link>
           <Link href="#waitlist" className="nav-cta">Be the first to know</Link>
-        </div>
-      </nav>
+        </div>`
+);
 
-      {/* HERO */}
-      <section className="hero" id="hero">
-        <div className="hero-bg-blob blob1"></div>
-        <div className="hero-bg-blob blob2"></div>
-        <div className="hero-bg-blob blob3"></div>
-        <div className="hero-inner">
-          <div>
-            <div className="hero-badge fade-up" style={{visibility: "hidden"}}>
+// 2. Update Hero text and CTA
+content = content.replace(
+  /<div className="hero-badge fade-up">[\s\S]*?<\/div>/,
+  `<div className="hero-badge fade-up" style={{visibility: "hidden"}}>
               <div className="dot"></div>
               Coming Soon
-            </div>
-              Now available on Android - Join the beta
-            </div>
-            <h1 className="hero-heading fade-up">
-              Your Life.
-              <span className="highlight">Your Rules.</span>
-              Every Single Day.
-            </h1>
-            <p className="hero-sub fade-up">A daily companion for the Indian woman who doesn't want to settle.<br/><strong style={{color: "var(--crimson-light)", display: "inline-block", marginTop: "12px", fontSize: "16px", letterSpacing: "1px", textTransform: "uppercase"}}>Launching 28 August 2026</strong></p>
-            <div className="hero-ctas fade-up">
+            </div>`
+);
+
+content = content.replace(
+  /<p className="hero-sub fade-up">Meet Sakhee - your AI companion who remembers everything, shows up every morning, and helps you become the woman you're already becoming.<\/p>/,
+  `<p className="hero-sub fade-up">A daily companion for the Indian woman who doesn't want to settle.<br/><strong style={{color: "var(--crimson-light)", display: "inline-block", marginTop: "12px", fontSize: "16px", letterSpacing: "1px", textTransform: "uppercase"}}>Launching 28 August 2026</strong></p>`
+);
+
+content = content.replace(
+  /<div className="hero-ctas fade-up">[\s\S]*?<\/div>/,
+  `<div className="hero-ctas fade-up">
               <Link href="#waitlist" className="btn-primary">✨ Be the first to know</Link>
-            </div>
-            <div className="hero-social-proof fade-up">
-              <div className="avatars">
-                <div className="av av1">P</div>
-                <div className="av av2">R</div>
-                <div className="av av3">M</div>
-                <div className="av av4">S</div>
-              </div>
-              <div className="proof-text"><strong>Join the growing community</strong> of women on the waitlist</div>
-            </div>
-          </div>
-          <div className="hero-visual fade-up">
-            {/* Floating badges */}
-            <div className="float-badge fb1">🔥 34-day streak</div>
-            <div className="float-badge fb2">✨ Win logged!</div>
-            <div className="float-badge fb3">🏆 Badge unlocked</div>
-            <div className="float-badge fb4">💜 Sakhee says hi</div>
+            </div>`
+);
 
-            {/* Phone mockup */}
-            <div className="phone-mock">
-              <div className="ph-header">
-                <div className="ph-avatar">S</div>
-                <div className="ph-user">
-                  <div className="ph-name">Hi, <span>Sakhee</span></div>
-                  <div className="ph-greeting">Good evening</div>
-                </div>
-                <div className="ph-streak">🔥 0</div>
-                <div className="ph-bell">🔔</div>
-              </div>
-              
-              <div className="ph-rituals">
-                <div className="ph-ritual-item">
-                  <div className="ph-rc ph-rc-yellow">☀️</div>
-                  <div className="ph-rt">Rise Sharp</div>
-                  <div className="ph-rst">5 MIN</div>
-                </div>
-                <div className="ph-ritual-item">
-                  <div className="ph-rc ph-rc-pink">✨</div>
-                  <div className="ph-rt">Spark</div>
-                  <div className="ph-rst">ONGOING</div>
-                </div>
-                <div className="ph-ritual-item">
-                  <div className="ph-rc ph-rc-purple">🌙</div>
-                  <div className="ph-rt">Close Strong</div>
-                  <div className="ph-rst">8:00 PM</div>
-                </div>
-              </div>
+// 3. Replace all middle sections with the pre-launch sections
+const middleStartMarker = "{/* HOW IT WORKS */}";
+const middleEndMarker = "{/* WAITLIST QR */}";
 
-              <div className="ph-calendar">
-                <div className="ph-day ph-day-past"><span>Sun</span><strong>2</strong><span>-</span></div>
-                <div className="ph-day ph-day-active"><span>Mon</span><strong>3</strong><span>◌</span></div>
-                <div className="ph-day"><span>Tue</span><strong>4</strong></div>
-                <div className="ph-day"><span>Wed</span><strong>5</strong></div>
-                <div className="ph-day"><span>Thu</span><strong>6</strong></div>
-              </div>
+const middleStartIdx = content.indexOf(middleStartMarker);
+const middleEndIdx = content.indexOf(middleEndMarker);
 
-              <div className="ph-task-card">
-                <div className="ph-task-header">
-                  <div className="ph-task-icon">✔️</div>
-                  <div className="ph-task-label">TODAY'S TASK</div>
-                  <div className="ph-task-day">DAY 3/31</div>
-                </div>
-                <div className="ph-task-quote">Hunger has different voices. Today you learn to tell them apart.</div>
-                <div className="ph-task-progress"><div className="ph-tp-fill"></div></div>
-                <div className="ph-task-footer">Check-in · Notice · Eat Well, Feel Well</div>
-                <div className="ph-task-btn">Open today's task</div>
-              </div>
-              <div className="ph-fab">💬</div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      
+const newSections = `
       {/* WHY SAKHEE */}
       <section className="how-bg" id="why-sakhee">
         <div className="section-inner" style={{maxWidth: "800px", margin: "0 auto", textAlign: "center"}}>
@@ -179,26 +85,21 @@ export default function Home() {
         </div>
       </section>
 
-{/* WAITLIST QR */}
-      <section id="waitlist" style={{ background: "var(--cream)", padding: "100px 5vw", textAlign: "center" }}>
-        <div className="section-inner fade-up" style={{ maxWidth: "500px", margin: "0 auto", background: "white", padding: "48px", borderRadius: "32px", boxShadow: "0 12px 40px rgba(196, 66, 110, 0.08)" }}>
-          <div className="section-label" style={{ marginBottom: "12px" }}>Launching 28 August 2026</div>
-          <h2 className="section-heading" style={{ fontSize: "32px", marginBottom: "16px" }}>Join the Waitlist</h2>
-          <p className="section-sub" style={{ fontSize: "15px", marginBottom: "40px", opacity: 0.7 }}>Scan this code with your phone camera to secure your spot before we launch.</p>
-          <img src="/qr.png" alt="Join Waitlist QR Code" style={{ width: "260px", height: "auto", margin: "0 auto", display: "block", mixBlendMode: "multiply" }} />
-        </div>
-      </section>
+`;
 
-      {/* FOOTER */}
-      <footer>
-        <span className="footer-logo">Hello<span>Sakhee</span></span>
-        <div className="footer-tagline">Your Life. Your Rules. Every Single Day.</div>
-        
-        <div className="footer-contact" style={{ margin: "16px 0 24px", fontSize: "15px", color: "var(--text-mid)" }}>
-          Reach out to us at: <a href="mailto:Contact@hellosakhee.com" style={{ color: "var(--crimson)", fontWeight: "800", textDecoration: "none" }}>Contact@hellosakhee.com</a>
-        </div>
+if (middleStartIdx !== -1 && middleEndIdx !== -1) {
+    content = content.substring(0, middleStartIdx) + newSections + content.substring(middleEndIdx);
+}
 
-        
+// 4. Update Waitlist section heading to reflect launch date
+content = content.replace(
+  /<div className="section-label" style={{ marginBottom: "12px" }}>Early Access<\/div>/,
+  `<div className="section-label" style={{ marginBottom: "12px" }}>Launching 28 August 2026</div>`
+);
+
+// 5. Update footer - Add social icons and remove footer-links
+const footerLinksPattern = /<div className="footer-links">[\s\S]*?<\/div>/;
+const socialIconsHTML = `
         <div className="footer-socials" style={{display: "flex", gap: "24px", justifyContent: "center", margin: "32px 0 24px"}}>
           <a href="#" aria-label="LinkedIn" style={{color: "var(--white)", opacity: 0.5, transition: "opacity 0.2s"}} onMouseEnter={(e)=>e.currentTarget.style.opacity=1} onMouseLeave={(e)=>e.currentTarget.style.opacity=0.5}>
             <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
@@ -207,10 +108,9 @@ export default function Home() {
             <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
           </a>
         </div>
+`;
 
+content = content.replace(footerLinksPattern, socialIconsHTML);
 
-        <div className="footer-copy">© 2026 HelloSakhee.</div>
-      </footer>
-    </>
-  );
-}
+fs.writeFileSync('app/page.js', content);
+console.log('Pre-launch redesign applied successfully.');
