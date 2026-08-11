@@ -320,7 +320,7 @@ export default function Home() {
           <div className="section-label" style={{ marginBottom: "12px" }}>Early Access</div>
           <h2 className="section-heading" style={{ fontSize: "32px", marginBottom: "16px" }}>Join the Waitlist</h2>
           <p className="section-sub" style={{ fontSize: "15px", marginBottom: "40px", opacity: 0.7 }}>Scan this code with your phone camera to secure your spot before we launch.</p>
-          <img src="/qr.png" alt="Join Waitlist QR Code" style={{ width: "180px", height: "180px", borderRadius: "16px", padding: "8px", border: "2px solid rgba(0,0,0,0.05)", margin: "0 auto", display: "block" }} />
+          <img src="/qr.png" alt="Join Waitlist QR Code" style={{ width: "260px", height: "auto", margin: "0 auto", display: "block", mixBlendMode: "multiply" }} />
         </div>
       </section>
 
