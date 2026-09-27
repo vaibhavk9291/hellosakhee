@@ -37,7 +37,7 @@ export default function Home() {
           <div className="eyebrow">HELLO, SAKHEE.</div>
           <h1 className="h1">Log kya kahenge?<br/>— Not anymore.</h1>
           <p className="sub">Daily companion for the Indian woman<br/>who doesn't want to settle.</p>
-          <span className="launch-date">LAUNCHING 10 SEPTEMBER 2026</span>
+          <span className="launch-date">LAUNCHING 9 OCTOBER 2026</span>
           <a href="#waitlist" className="btn-dark">BE THE FIRST TO KNOW</a>
         </div>
         
