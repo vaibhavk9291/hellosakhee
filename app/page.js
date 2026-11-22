@@ -173,7 +173,6 @@ export default function Home() {
                 alt="Woman relaxing on a cozy balcony with tea at sunset" 
               />
             </div>
-            <div className="circle-accent"></div>
           </div>
 
           <div className="why-right">
