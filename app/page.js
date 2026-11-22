@@ -129,9 +129,9 @@ export default function Home() {
             <div className="app-showcase-box">
               <div className="app-showcase-diagonal"></div>
 
-              {/* BRAND LOGO BADGE */}
+              {/* BRAND LOGO DIRECT (TRANSPARENT) */}
               <div className="app-showcase-logo">
-                <img src="/logo-badge.png" alt="Hello Sakhee Logo" />
+                <img src="/logo-transparent.png" alt="Hello Sakhee Logo" />
               </div>
 
               {/* PHONE MOCKUP SCREEN */}
