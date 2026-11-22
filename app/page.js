@@ -482,7 +482,7 @@ export default function Home() {
         <div className="careers-inner">
           <div className="eyebrow">CAREERS</div>
           <h2 className="serif-heading careers-title">
-            Build something that feels human.
+           Together, let's make a difference in women's lives.
           </h2>
           <p className="careers-body">
             We welcome thoughtful people who care about making everyday life feel more connected and considered for women. If that sounds like you, start a conversation with us.
