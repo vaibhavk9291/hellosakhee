@@ -167,6 +167,10 @@
       gap: 6px;
       padding: 8px 16px;
       border-radius: 4px;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      font-family: inherit;
       transition: all 0.2s ease;
     }
 
@@ -1354,6 +1358,201 @@
         align-items: flex-start;
       }
     }
+
+    /* 16. DOWNLOAD CHOICE MODAL */
+    .download-modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background-color: rgba(45, 20, 33, 0.72);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      animation: modalFadeIn 0.28s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    @keyframes modalFadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+
+    @keyframes modalPopIn {
+      from {
+        opacity: 0;
+        transform: translateY(22px) scale(0.96);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+
+    .download-modal-card {
+      position: relative;
+      background: #fff9f9;
+      border-radius: 24px;
+      box-shadow: 0 24px 60px rgba(45, 20, 33, 0.35), 0 0 0 1px rgba(71, 38, 57, 0.08);
+      width: 100%;
+      max-width: 440px;
+      padding: 38px 30px 32px;
+      text-align: center;
+      color: var(--plum);
+      animation: modalPopIn 0.34s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      box-sizing: border-box;
+    }
+
+    .modal-close-btn {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      background: rgba(71, 38, 57, 0.06);
+      border: none;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--plum);
+      transition: all 0.2s ease;
+    }
+
+    .modal-close-btn:hover {
+      background: rgba(71, 38, 57, 0.12);
+      transform: scale(1.06);
+    }
+
+    .modal-badge-wrapper {
+      margin-bottom: 14px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .modal-badge-icon {
+      width: 46px;
+      height: 46px;
+      object-fit: contain;
+      border-radius: 12px;
+      box-shadow: 0 4px 14px rgba(71, 38, 57, 0.12);
+    }
+
+    .modal-eyebrow {
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 2.4px;
+      text-transform: uppercase;
+      color: var(--plum);
+      opacity: 0.65;
+      margin-bottom: 8px;
+    }
+
+    .modal-title {
+      font-family: var(--font-serif);
+      font-size: 27px;
+      font-weight: 500;
+      line-height: 1.2;
+      color: var(--plum);
+      margin-bottom: 10px;
+    }
+
+    .modal-sub {
+      font-size: 14px;
+      line-height: 1.5;
+      color: rgba(71, 38, 57, 0.8);
+      margin-bottom: 26px;
+    }
+
+    .modal-options-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 13px;
+    }
+
+    .modal-option-btn {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 13px 18px;
+      background: #ffffff;
+      border: 1.5px solid rgba(71, 38, 57, 0.14);
+      border-radius: 14px;
+      text-decoration: none;
+      color: var(--plum);
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      box-shadow: 0 2px 8px rgba(71, 38, 57, 0.04);
+    }
+
+    .modal-option-btn:hover {
+      background: #fdf5f3;
+      border-color: var(--plum);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 24px rgba(71, 38, 57, 0.13);
+    }
+
+    .modal-option-content {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      text-align: left;
+    }
+
+    .modal-option-icon {
+      width: 32px;
+      height: 32px;
+      object-fit: contain;
+      flex-shrink: 0;
+    }
+
+    .modal-option-labels {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .modal-option-pre {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      opacity: 0.65;
+      line-height: 1.2;
+    }
+
+    .modal-option-name {
+      font-size: 17px;
+      font-weight: 700;
+      letter-spacing: -0.2px;
+      line-height: 1.25;
+      color: var(--plum);
+    }
+
+    .modal-option-arrow {
+      color: var(--plum);
+      opacity: 0.45;
+      transition: transform 0.2s ease, opacity 0.2s ease;
+      display: flex;
+      align-items: center;
+    }
+
+    .modal-option-btn:hover .modal-option-arrow {
+      opacity: 1;
+      transform: translateX(3px);
+    }
+
+    .modal-footer-note {
+      font-size: 11.5px;
+      letter-spacing: 0.3px;
+      color: rgba(71, 38, 57, 0.6);
+      margin-top: 22px;
+    }
   </style>
 </head>
 <body>
@@ -1373,7 +1572,7 @@
       <a href="#collaborations" class="nav-link">Collaborations</a>
       <a href="#careers" class="nav-link">Careers</a>
       <a href="#contact" class="nav-link">Contact</a>
-      <a href="#membership" class="nav-cta-btn">GET HELLO SAKHEE ↗</a>
+      <button type="button" class="nav-cta-btn" id="openDownloadModalNav">GET HELLO SAKHEE ↗</button>
     </nav>
 
     <button class="mobile-menu-toggle" id="menuToggle" aria-label="Toggle navigation menu">
@@ -1396,9 +1595,9 @@
           A little space in every day to pause, reflect, grow, and come back to yourself.
         </p>
         <div class="hero-ctas">
-          <a href="#membership" class="btn-primary-dark">
+          <button type="button" class="btn-primary-dark" id="openDownloadModalHero">
             GET HELLO SAKHEE ↗
-          </a>
+          </button>
           <div class="hero-store-badges">
             <a 
               href="https://play.google.com/store/apps/details?id=com.hello.sakhee"
@@ -1960,7 +2159,97 @@
     </div>
   </footer>
 
+  <!-- DOWNLOAD CHOICE MODAL -->
+  <div id="downloadModal" class="download-modal-backdrop" style="display: none;" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="download-modal-card" onclick="event.stopPropagation()">
+      <button type="button" class="modal-close-btn" id="closeDownloadModal" aria-label="Close dialog">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+
+      <div class="modal-badge-wrapper">
+        <img src="logo-badge.png" alt="Hello Sakhee" class="modal-badge-icon">
+      </div>
+
+      <div class="modal-eyebrow">YOUR DAILY COMPANION</div>
+      <h3 id="modal-title" class="modal-title">Download Hello Sakhee</h3>
+      <p class="modal-sub">
+        Choose your platform to get started on your daily wellness journey:
+      </p>
+
+      <div class="modal-options-grid">
+        <a href="https://play.google.com/store/apps/details?id=com.hello.sakhee" target="_blank" rel="noopener noreferrer" class="modal-option-btn">
+          <div class="modal-option-content">
+            <img src="google-play-icon.svg" alt="Google Play" class="modal-option-icon">
+            <div class="modal-option-labels">
+              <span class="modal-option-pre">Get it on</span>
+              <span class="modal-option-name">Google Play</span>
+            </div>
+          </div>
+          <span class="modal-option-arrow">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </span>
+        </a>
+
+        <a href="https://apps.apple.com/us/app/hello-sakhee/id6803506919" target="_blank" rel="noopener noreferrer" class="modal-option-btn">
+          <div class="modal-option-content">
+            <img src="apple-icon.svg" alt="App Store" class="modal-option-icon">
+            <div class="modal-option-labels">
+              <span class="modal-option-pre">Download on the</span>
+              <span class="modal-option-name">App Store</span>
+            </div>
+          </div>
+          <span class="modal-option-arrow">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </span>
+        </a>
+      </div>
+
+      <div class="modal-footer-note">
+        Available for Android and iOS devices
+      </div>
+    </div>
+  </div>
+
   <script>
+    // Download Modal Logic
+    const downloadModal = document.getElementById('downloadModal');
+    const openModalNav = document.getElementById('openDownloadModalNav');
+    const openModalHero = document.getElementById('openDownloadModalHero');
+    const closeModalBtn = document.getElementById('closeDownloadModal');
+
+    function openDownloadModal() {
+      if (downloadModal) {
+        downloadModal.style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+      }
+    }
+
+    function closeDownloadModal() {
+      if (downloadModal) {
+        downloadModal.style.display = 'none';
+        document.body.style.overflow = '';
+      }
+    }
+
+    if (openModalNav) openModalNav.addEventListener('click', openDownloadModal);
+    if (openModalHero) openModalHero.addEventListener('click', openDownloadModal);
+    if (closeModalBtn) closeModalBtn.addEventListener('click', closeDownloadModal);
+    if (downloadModal) {
+      downloadModal.addEventListener('click', closeDownloadModal);
+    }
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeDownloadModal();
+    });
+
     // Mobile navigation toggle
     const menuToggle = document.getElementById('menuToggle');
     const navMenu = document.getElementById('navMenu');

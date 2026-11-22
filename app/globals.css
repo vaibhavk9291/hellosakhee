@@ -159,6 +159,10 @@ a {
   gap: 6px;
   padding: 8px 16px;
   border-radius: 4px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
   transition: all 0.2s ease;
 }
 
@@ -1367,4 +1371,199 @@ a {
     flex-direction: column;
     align-items: flex-start;
   }
+}
+
+/* 16. DOWNLOAD CHOICE MODAL */
+.download-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(45, 20, 33, 0.72);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  animation: modalFadeIn 0.28s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes modalFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes modalPopIn {
+  from {
+    opacity: 0;
+    transform: translateY(22px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.download-modal-card {
+  position: relative;
+  background: #fff9f9;
+  border-radius: 24px;
+  box-shadow: 0 24px 60px rgba(45, 20, 33, 0.35), 0 0 0 1px rgba(71, 38, 57, 0.08);
+  width: 100%;
+  max-width: 440px;
+  padding: 38px 30px 32px;
+  text-align: center;
+  color: var(--plum);
+  animation: modalPopIn 0.34s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  box-sizing: border-box;
+}
+
+.modal-close-btn {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: rgba(71, 38, 57, 0.06);
+  border: none;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--plum);
+  transition: all 0.2s ease;
+}
+
+.modal-close-btn:hover {
+  background: rgba(71, 38, 57, 0.12);
+  transform: scale(1.06);
+}
+
+.modal-badge-wrapper {
+  margin-bottom: 14px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-badge-icon {
+  width: 46px;
+  height: 46px;
+  object-fit: contain;
+  border-radius: 12px;
+  box-shadow: 0 4px 14px rgba(71, 38, 57, 0.12);
+}
+
+.modal-eyebrow {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 2.4px;
+  text-transform: uppercase;
+  color: var(--plum);
+  opacity: 0.65;
+  margin-bottom: 8px;
+}
+
+.modal-title {
+  font-family: var(--font-serif);
+  font-size: 27px;
+  font-weight: 500;
+  line-height: 1.2;
+  color: var(--plum);
+  margin-bottom: 10px;
+}
+
+.modal-sub {
+  font-size: 14px;
+  line-height: 1.5;
+  color: rgba(71, 38, 57, 0.8);
+  margin-bottom: 26px;
+}
+
+.modal-options-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 13px;
+}
+
+.modal-option-btn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 13px 18px;
+  background: #ffffff;
+  border: 1.5px solid rgba(71, 38, 57, 0.14);
+  border-radius: 14px;
+  text-decoration: none;
+  color: var(--plum);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 2px 8px rgba(71, 38, 57, 0.04);
+}
+
+.modal-option-btn:hover {
+  background: #fdf5f3;
+  border-color: var(--plum);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(71, 38, 57, 0.13);
+}
+
+.modal-option-content {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  text-align: left;
+}
+
+.modal-option-icon {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.modal-option-labels {
+  display: flex;
+  flex-direction: column;
+}
+
+.modal-option-pre {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  opacity: 0.65;
+  line-height: 1.2;
+}
+
+.modal-option-name {
+  font-size: 17px;
+  font-weight: 700;
+  letter-spacing: -0.2px;
+  line-height: 1.25;
+  color: var(--plum);
+}
+
+.modal-option-arrow {
+  color: var(--plum);
+  opacity: 0.45;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+  display: flex;
+  align-items: center;
+}
+
+.modal-option-btn:hover .modal-option-arrow {
+  opacity: 1;
+  transform: translateX(3px);
+}
+
+.modal-footer-note {
+  font-size: 11.5px;
+  letter-spacing: 0.3px;
+  color: rgba(71, 38, 57, 0.6);
+  margin-top: 22px;
 }

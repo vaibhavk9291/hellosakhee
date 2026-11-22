@@ -1,9 +1,10 @@
 "use client";
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 
 export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [downloadModalOpen, setDownloadModalOpen] = useState(false);
   const [activePlatform, setActivePlatform] = useState('android');
   const [formSubmitted, setFormSubmitted] = useState(false);
   const [formData, setFormData] = useState({
@@ -12,6 +13,22 @@ export default function Home() {
     subject: '',
     message: ''
   });
+
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape') setDownloadModalOpen(false);
+    };
+    if (downloadModalOpen) {
+      document.body.style.overflow = 'hidden';
+      window.addEventListener('keydown', handleKeyDown);
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [downloadModalOpen]);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -46,9 +63,16 @@ export default function Home() {
           <a href="#collaborations" className="nav-link" onClick={() => setMenuOpen(false)}>Collaborations</a>
           <a href="#careers" className="nav-link" onClick={() => setMenuOpen(false)}>Careers</a>
           <a href="#contact" className="nav-link" onClick={() => setMenuOpen(false)}>Contact</a>
-          <a href="#membership" className="nav-cta-btn" onClick={() => setMenuOpen(false)}>
+          <button
+            type="button"
+            className="nav-cta-btn"
+            onClick={() => {
+              setMenuOpen(false);
+              setDownloadModalOpen(true);
+            }}
+          >
             GET HELLO SAKHEE ↗
-          </a>
+          </button>
         </nav>
 
         <button
@@ -79,9 +103,13 @@ export default function Home() {
               A little space in every day to pause, reflect, grow, and come back to yourself.
             </p>
             <div className="hero-ctas">
-              <a href="#membership" className="btn-primary-dark">
+              <button
+                type="button"
+                className="btn-primary-dark"
+                onClick={() => setDownloadModalOpen(true)}
+              >
                 GET HELLO SAKHEE ↗
-              </a>
+              </button>
               <div className="hero-store-badges">
                 <a
                   href="https://play.google.com/store/apps/details?id=com.hello.sakhee"
@@ -694,6 +722,104 @@ export default function Home() {
           </div>
         </div>
       </footer>
+
+      {/* DOWNLOAD CHOICE MODAL */}
+      {downloadModalOpen && (
+        <div
+          className="download-modal-backdrop"
+          onClick={() => setDownloadModalOpen(false)}
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="modal-title"
+        >
+          <div
+            className="download-modal-card"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button
+              type="button"
+              className="modal-close-btn"
+              onClick={() => setDownloadModalOpen(false)}
+              aria-label="Close dialog"
+            >
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                <line x1="18" y1="6" x2="6" y2="18"></line>
+                <line x1="6" y1="6" x2="18" y2="18"></line>
+              </svg>
+            </button>
+
+            <div className="modal-badge-wrapper">
+              <img
+                src="/logo-badge.png"
+                alt="Hello Sakhee"
+                className="modal-badge-icon"
+              />
+            </div>
+
+            <div className="modal-eyebrow">YOUR DAILY COMPANION</div>
+            <h3 id="modal-title" className="modal-title">Download Hello Sakhee</h3>
+            <p className="modal-sub">
+              Choose your platform to get started on your daily wellness journey:
+            </p>
+
+            <div className="modal-options-grid">
+              <a
+                href="https://play.google.com/store/apps/details?id=com.hello.sakhee"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="modal-option-btn"
+              >
+                <div className="modal-option-content">
+                  <img
+                    src="/google-play-icon.svg"
+                    alt="Google Play"
+                    className="modal-option-icon"
+                  />
+                  <div className="modal-option-labels">
+                    <span className="modal-option-pre">Get it on</span>
+                    <span className="modal-option-name">Google Play</span>
+                  </div>
+                </div>
+                <span className="modal-option-arrow">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                    <polyline points="12 5 19 12 12 19"></polyline>
+                  </svg>
+                </span>
+              </a>
+
+              <a
+                href="https://apps.apple.com/us/app/hello-sakhee/id6803506919"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="modal-option-btn"
+              >
+                <div className="modal-option-content">
+                  <img
+                    src="/apple-icon.svg"
+                    alt="App Store"
+                    className="modal-option-icon"
+                  />
+                  <div className="modal-option-labels">
+                    <span className="modal-option-pre">Download on the</span>
+                    <span className="modal-option-name">App Store</span>
+                  </div>
+                </div>
+                <span className="modal-option-arrow">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                    <polyline points="12 5 19 12 12 19"></polyline>
+                  </svg>
+                </span>
+              </a>
+            </div>
+
+            <div className="modal-footer-note">
+              Available for Android and iOS devices
+            </div>
+          </div>
+        </div>
+      )}
     </main>
   );
 }
