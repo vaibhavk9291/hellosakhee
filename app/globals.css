@@ -47,14 +47,47 @@ a {
 .top-navbar {
   background-color: var(--plum);
   color: var(--white);
-  padding: 18px 4vw;
+  padding: 16px 4vw;
   position: sticky;
   top: 0;
   z-index: 100;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 24px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
+}
+
+.brand-logo-link {
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
+.navbar-logo {
+  height: 28px;
+  width: auto;
+  display: block;
+  object-fit: contain;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.navbar-logo:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
+.footer-logo {
+  height: 34px;
+  width: auto;
+  display: block;
+  object-fit: contain;
+  transition: opacity 0.2s ease;
+}
+
+.footer-logo:hover {
+  opacity: 0.9;
 }
 
 .brand-lockup {
@@ -84,7 +117,7 @@ a {
 .nav-menu {
   display: flex;
   align-items: center;
-  gap: 28px;
+  gap: 20px;
 }
 
 .nav-link {
@@ -182,13 +215,16 @@ a {
   font-weight: 700;
   letter-spacing: 1.2px;
   text-transform: uppercase;
-  padding: 15px 30px;
+  padding: 14px 34px;
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 8px;
-  border: 1px solid var(--plum);
+  border: 1.5px solid var(--plum);
   border-radius: 2px;
   cursor: pointer;
+  min-width: 140px;
+  box-sizing: border-box;
   transition: all 0.25s ease;
 }
 
@@ -208,10 +244,13 @@ a {
   padding: 14px 34px;
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 8px;
   border: 1.5px solid var(--plum);
   border-radius: 2px;
   cursor: pointer;
+  min-width: 140px;
+  box-sizing: border-box;
   transition: all 0.25s ease;
 }
 
@@ -314,8 +353,34 @@ a {
 .hero-ctas {
   display: flex;
   align-items: center;
-  gap: 28px;
+  gap: 16px;
   flex-wrap: wrap;
+}
+
+.hero-store-badges {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: nowrap;
+}
+
+.store-badge-link {
+  display: inline-flex;
+  align-items: center;
+  transition: transform 0.25s ease, opacity 0.25s ease, filter 0.25s ease;
+}
+
+.store-badge-link:hover {
+  transform: translateY(-2px);
+  opacity: 0.92;
+  filter: drop-shadow(0 4px 12px rgba(71, 38, 57, 0.15));
+}
+
+.store-badge-img {
+  height: 40px;
+  width: auto;
+  display: block;
+  border-radius: 4px;
 }
 
 .hero-right {
@@ -591,7 +656,33 @@ a {
   box-shadow: 0 16px 36px rgba(71, 38, 57, 0.08);
 }
 
-/* circle-accent removed per design update */
+.balcony-logo-circle {
+  position: absolute;
+  bottom: -35px;
+  right: -35px;
+  width: 190px;
+  height: 190px;
+  border-radius: 50%;
+  background-color: var(--blush);
+  border: 1px solid rgba(71, 38, 57, 0.15);
+  box-shadow: 0 10px 28px rgba(71, 38, 57, 0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  transition: transform 0.3s ease;
+}
+
+.balcony-logo-circle:hover {
+  transform: scale(1.04);
+}
+
+.balcony-logo-circle img {
+  width: 115px;
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 2px 6px rgba(71, 38, 57, 0.08));
+}
 
 .why-title {
   font-size: 46px;
@@ -1004,6 +1095,12 @@ a {
   align-items: center;
 }
 
+.founder-frame-wrap {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
 .founder-right .editorial-frame img {
   max-height: 580px;
   object-fit: cover;
@@ -1015,7 +1112,8 @@ a {
   font-size: 13.5px;
   color: rgba(71, 38, 57, 0.7);
   letter-spacing: 0.5px;
-  text-align: center;
+  text-align: left;
+  align-self: flex-start;
 }
 
 /* 11. CAREERS */
@@ -1165,6 +1263,25 @@ a {
   color: rgba(255, 255, 255, 0.6);
   flex-wrap: wrap;
   gap: 16px;
+}
+
+.footer-social-links {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.footer-social-link {
+  color: rgba(255, 255, 255, 0.7);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.25s ease;
+}
+
+.footer-social-link:hover {
+  color: var(--white);
+  transform: translateY(-2px);
 }
 
 /* RESPONSIVE BREAKPOINTS */

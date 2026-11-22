@@ -55,14 +55,47 @@
     .top-navbar {
       background-color: var(--plum);
       color: var(--white);
-      padding: 18px 4vw;
+      padding: 16px 4vw;
       position: sticky;
       top: 0;
       z-index: 100;
       display: flex;
       justify-content: space-between;
       align-items: center;
+      gap: 24px;
       box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
+    }
+
+    .brand-logo-link {
+      display: inline-flex;
+      align-items: center;
+      text-decoration: none;
+      flex-shrink: 0;
+    }
+
+    .navbar-logo {
+      height: 28px;
+      width: auto;
+      display: block;
+      object-fit: contain;
+      transition: opacity 0.2s ease, transform 0.2s ease;
+    }
+
+    .navbar-logo:hover {
+      opacity: 0.9;
+      transform: translateY(-1px);
+    }
+
+    .footer-logo {
+      height: 34px;
+      width: auto;
+      display: block;
+      object-fit: contain;
+      transition: opacity 0.2s ease;
+    }
+
+    .footer-logo:hover {
+      opacity: 0.9;
     }
 
     .brand-lockup {
@@ -92,7 +125,7 @@
     .nav-menu {
       display: flex;
       align-items: center;
-      gap: 28px;
+      gap: 20px;
     }
 
     .nav-link {
@@ -177,13 +210,16 @@
       font-weight: 700;
       letter-spacing: 1.2px;
       text-transform: uppercase;
-      padding: 15px 30px;
+      padding: 14px 34px;
       display: inline-flex;
       align-items: center;
+      justify-content: center;
       gap: 8px;
-      border: 1px solid var(--plum);
+      border: 1.5px solid var(--plum);
       border-radius: 2px;
       cursor: pointer;
+      min-width: 140px;
+      box-sizing: border-box;
       transition: all 0.25s ease;
     }
 
@@ -203,10 +239,13 @@
       padding: 14px 34px;
       display: inline-flex;
       align-items: center;
+      justify-content: center;
       gap: 8px;
       border: 1.5px solid var(--plum);
       border-radius: 2px;
       cursor: pointer;
+      min-width: 140px;
+      box-sizing: border-box;
       transition: all 0.25s ease;
     }
 
@@ -309,8 +348,34 @@
     .hero-ctas {
       display: flex;
       align-items: center;
-      gap: 28px;
+      gap: 16px;
       flex-wrap: wrap;
+    }
+
+    .hero-store-badges {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: nowrap;
+    }
+
+    .store-badge-link {
+      display: inline-flex;
+      align-items: center;
+      transition: transform 0.25s ease, opacity 0.25s ease, filter 0.25s ease;
+    }
+
+    .store-badge-link:hover {
+      transform: translateY(-2px);
+      opacity: 0.92;
+      filter: drop-shadow(0 4px 12px rgba(71, 38, 57, 0.15));
+    }
+
+    .store-badge-img {
+      height: 40px;
+      width: auto;
+      display: block;
+      border-radius: 4px;
     }
 
     .hero-right {
@@ -578,7 +643,33 @@
       box-shadow: 0 16px 36px rgba(71, 38, 57, 0.08);
     }
 
-    /* circle-accent removed per design update */
+    .balcony-logo-circle {
+      position: absolute;
+      bottom: -35px;
+      right: -35px;
+      width: 190px;
+      height: 190px;
+      border-radius: 50%;
+      background-color: var(--blush);
+      border: 1px solid rgba(71, 38, 57, 0.15);
+      box-shadow: 0 10px 28px rgba(71, 38, 57, 0.12);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 10;
+      transition: transform 0.3s ease;
+    }
+
+    .balcony-logo-circle:hover {
+      transform: scale(1.04);
+    }
+
+    .balcony-logo-circle img {
+      width: 115px;
+      height: auto;
+      object-fit: contain;
+      filter: drop-shadow(0 2px 6px rgba(71, 38, 57, 0.08));
+    }
 
     .why-title {
       font-size: 46px;
@@ -991,6 +1082,12 @@
       align-items: center;
     }
 
+    .founder-frame-wrap {
+      display: inline-flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
     .founder-right .editorial-frame img {
       max-height: 580px;
       object-fit: cover;
@@ -1002,7 +1099,8 @@
       font-size: 13.5px;
       color: rgba(71, 38, 57, 0.7);
       letter-spacing: 0.5px;
-      text-align: center;
+      text-align: left;
+      align-self: flex-start;
     }
 
     /* 11. CAREERS */
@@ -1154,6 +1252,25 @@
       gap: 16px;
     }
 
+    .footer-social-links {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+    }
+
+    .footer-social-link {
+      color: rgba(255, 255, 255, 0.7);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.25s ease;
+    }
+
+    .footer-social-link:hover {
+      color: var(--white);
+      transform: translateY(-2px);
+    }
+
     /* RESPONSIVE BREAKPOINTS */
     @media (max-width: 1024px) {
       .hero-grid,
@@ -1243,9 +1360,8 @@
 
   <!-- 1. TOP NAVBAR -->
   <header class="top-navbar">
-    <a href="#home" class="brand-lockup">
-      <span class="brand-name">Hello Sakhee</span>
-      <span class="brand-sub">YOUR DAILY COMPANION</span>
+    <a href="#home" class="brand-logo-link">
+      <img src="logo-light-horizontal.png" alt="Hello Sakhee" class="navbar-logo" />
     </a>
 
     <nav class="nav-menu" id="navMenu">
@@ -1283,9 +1399,26 @@
           <a href="#membership" class="btn-primary-dark">
             GET HELLO SAKHEE ↗
           </a>
-          <a href="#experience" class="link-arrow">
-            EXPLORE THE EXPERIENCE →
-          </a>
+          <div class="hero-store-badges">
+            <a 
+              href="https://play.google.com/store/apps/details?id=com.hello.sakhee"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="store-badge-link"
+              aria-label="Get it on Google Play"
+            >
+              <img src="google-play-badge.svg" alt="Google Play Store" class="store-badge-img" />
+            </a>
+            <a 
+              href="https://apps.apple.com/us/app/hello-sakhee/id6803506919"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="store-badge-link"
+              aria-label="Download on the App Store"
+            >
+              <img src="app-store-badge.svg" alt="Apple App Store" class="store-badge-img" />
+            </a>
+          </div>
         </div>
       </div>
 
@@ -1367,6 +1500,9 @@
       <div class="why-left">
         <div class="editorial-frame">
           <img src="lifestyle-balcony.png" alt="Woman relaxing on a cozy balcony with tea at sunset" />
+          <div class="balcony-logo-circle">
+            <img src="logo-transparent.png" alt="Hello Sakhee Logo" />
+          </div>
         </div>
       </div>
 
@@ -1627,10 +1763,10 @@
         A daily companion for the woman you are, and the life you’re living right now.
       </p>
       <div class="download-buttons">
-        <a href="#contact" class="btn-primary-dark">
+        <a href="https://play.google.com/store/apps/details?id=com.hello.sakhee" target="_blank" rel="noopener noreferrer" class="btn-primary-dark download-toggle-btn" data-platform="android">
           ANDROID
         </a>
-        <a href="#contact" class="btn-outline-dark">
+        <a href="https://apps.apple.com/us/app/hello-sakhee/id6803506919" target="_blank" rel="noopener noreferrer" class="btn-outline-dark download-toggle-btn" data-platform="ios">
           IOS
         </a>
       </div>
@@ -1659,12 +1795,14 @@
       </div>
 
       <div class="founder-right">
-        <div class="editorial-frame">
-          <img src="founder-bhavana.png" alt="Bhavana Sharma, Founder and CEO of Hello Sakhee" />
+        <div class="founder-frame-wrap">
+          <div class="editorial-frame">
+            <img src="founder-bhavana.png" alt="Bhavana Sharma, Founder and CEO of Hello Sakhee" />
+          </div>
+          <p class="founder-caption">
+            Bhavana Sharma · Founder &amp; CEO
+          </p>
         </div>
-        <p class="founder-caption">
-          Bhavana Sharma · Founder &amp; CEO
-        </p>
       </div>
     </div>
   </section>
@@ -1696,6 +1834,17 @@
         <p class="contact-sub">
           A question, a thought, or an idea to explore together? Send us a note.
         </p>
+        <div style="margin-top: 20px; display: flex; flex-direction: column; gap: 8px;">
+          <a 
+            href="https://wa.me/919109443721?text=Hello%20Sakhee%2C%20I%20would%20like%20to%20connect%21" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            style="display: inline-flex; align-items: center; gap: 8px; font-size: 15px; color: var(--plum); font-weight: 600; text-decoration: none;"
+          >
+            <span>💬 WhatsApp / Message:</span>
+            <span style="text-decoration: underline;">+91 91094 43721</span>
+          </a>
+        </div>
       </div>
 
       <div class="contact-right">
@@ -1738,10 +1887,9 @@
   <!-- 14. FOOTER -->
   <footer class="site-footer">
     <div class="footer-top">
-      <div class="brand-lockup">
-        <span class="brand-name">Hello Sakhee</span>
-        <span class="brand-sub">YOUR DAILY COMPANION</span>
-      </div>
+      <a href="#home" class="brand-logo-link">
+        <img src="logo-light-horizontal.png" alt="Hello Sakhee" class="footer-logo" />
+      </a>
 
       <div class="footer-links">
         <a href="#home" class="footer-link">Home</a>
@@ -1759,7 +1907,56 @@
 
     <div class="footer-bottom">
       <div>© Hello Sakhee</div>
-      <div>A little space in every day.</div>
+      <div class="footer-social-links">
+        <a 
+          href="https://www.instagram.com/hellosakhee?hvrq=MW56bmxsa3QxMG96cw==" 
+          target="_blank" 
+          rel="noopener noreferrer" 
+          class="footer-social-link" 
+          aria-label="Instagram"
+          title="Instagram"
+        >
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
+          </svg>
+        </a>
+        <a 
+          href="https://www.linkedin.com/company/hello-sakhee/" 
+          target="_blank" 
+          rel="noopener noreferrer" 
+          class="footer-social-link" 
+          aria-label="LinkedIn"
+          title="LinkedIn"
+        >
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+          </svg>
+        </a>
+        <a 
+          href="https://www.facebook.com/share/1A9TpgNqMH/?mibextid=wwXIfr" 
+          target="_blank" 
+          rel="noopener noreferrer" 
+          class="footer-social-link" 
+          aria-label="Facebook"
+          title="Facebook"
+        >
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+          </svg>
+        </a>
+        <a 
+          href="https://wa.me/919109443721?text=Hello%20Sakhee%2C%20I%20would%20like%20to%20connect%21" 
+          target="_blank" 
+          rel="noopener noreferrer" 
+          class="footer-social-link" 
+          aria-label="WhatsApp"
+          title="WhatsApp"
+        >
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0012.04 2m.01 1.67c2.2 0 4.26.86 5.82 2.42a8.225 8.225 0 012.41 5.83c0 4.54-3.7 8.24-8.24 8.24-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.196 8.196 0 01-1.26-4.38c0-4.54 3.7-8.24 8.24-8.24m4.52 11.66c-.25-.13-1.47-.72-1.7-.81-.23-.08-.39-.13-.56.13-.17.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.13-1.06-.39-2.02-1.24-.74-.66-1.24-1.47-1.39-1.71-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.13-.15.17-.25.25-.42.08-.17.04-.31-.02-.44-.06-.13-.56-1.35-.77-1.85-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.44.06-.67.31-.23.25-.88.86-.88 2.1 0 1.24.9 2.44 1.03 2.61.13.17 1.77 2.71 4.3 3.79.6.26 1.07.41 1.44.53.61.19 1.16.17 1.6.1.49-.07 1.47-.6 1.68-1.18.21-.58.21-1.08.15-1.18-.06-.1-.23-.16-.48-.28z"/>
+          </svg>
+        </a>
+      </div>
     </div>
   </footer>
 
@@ -1774,6 +1971,19 @@
     document.querySelectorAll('.nav-link, .nav-cta-btn').forEach(link => {
       link.addEventListener('click', () => {
         navMenu.classList.remove('open');
+      });
+    });
+
+    // App download platform button toggle
+    const downloadToggleBtns = document.querySelectorAll('.download-toggle-btn');
+    downloadToggleBtns.forEach(btn => {
+      btn.addEventListener('click', function() {
+        downloadToggleBtns.forEach(b => {
+          b.classList.remove('btn-primary-dark');
+          b.classList.add('btn-outline-dark');
+        });
+        this.classList.remove('btn-outline-dark');
+        this.classList.add('btn-primary-dark');
       });
     });
 
