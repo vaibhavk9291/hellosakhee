@@ -126,12 +126,37 @@ export default function Home() {
           </div>
 
           <div className="space-right">
-            <div className="app-screen-card">
-              <div className="app-screen-diagonal"></div>
-              <div className="app-screen-inner">
-                <p className="app-screen-quote">
-                  Insert the app’s homescreen with the logo and name
-                </p>
+            <div className="app-showcase-box">
+              <div className="app-showcase-diagonal"></div>
+
+              {/* BRAND LOGO BADGE */}
+              <div className="app-showcase-logo">
+                <img src="/logo-badge.png" alt="Hello Sakhee Logo" />
+              </div>
+
+              {/* PHONE MOCKUP SCREEN */}
+              <div className="phone-mockup-wrap">
+                <div className="phone-device">
+                  <div className="phone-notch"></div>
+
+                  <div className="phone-screen-top">
+                    <div className="phone-screen-welcome">W E L C O M E &nbsp; T O</div>
+                    <div className="phone-screen-title">
+                      <span className="title-hello">Hello</span>
+                      <span className="title-sakhee">Sakhee</span>
+                    </div>
+                    <div className="phone-screen-subtitle">
+                      Your Life. Your Rules.<br />Every Single Day.
+                    </div>
+                  </div>
+
+                  <div className="phone-screen-bottom">
+                    <button className="phone-btn-start">Get Started</button>
+                    <div className="phone-login-text">
+                      Already have an account? <strong>Sign in</strong>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
