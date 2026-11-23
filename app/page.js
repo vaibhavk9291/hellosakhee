@@ -7,6 +7,8 @@ export default function Home() {
   const [downloadModalOpen, setDownloadModalOpen] = useState(false);
   const [activePlatform, setActivePlatform] = useState('android');
   const [formSubmitted, setFormSubmitted] = useState(false);
+  const [formSubmitting, setFormSubmitting] = useState(false);
+  const [formError, setFormError] = useState('');
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -35,14 +37,41 @@ export default function Home() {
     setFormData(prev => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    if (formData.name && formData.email) {
-      setFormSubmitted(true);
-      setTimeout(() => {
-        setFormSubmitted(false);
+    if (!formData.name || !formData.email) return;
+
+    setFormSubmitting(true);
+    setFormError('');
+
+    try {
+      const payload = new FormData();
+      payload.append('access_key', '2428e84e-944c-4ad5-af7e-27e091216c42');
+      payload.append('name', formData.name);
+      payload.append('email', formData.email);
+      payload.append('subject', formData.subject || 'New Message from Hello Sakhee Website');
+      payload.append('message', formData.message);
+      payload.append('from_name', 'Hello Sakhee Website');
+
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        body: payload
+      });
+
+      const result = await response.json();
+      if (result.success) {
+        setFormSubmitted(true);
         setFormData({ name: '', email: '', subject: '', message: '' });
-      }, 5000);
+        setTimeout(() => {
+          setFormSubmitted(false);
+        }, 6000);
+      } else {
+        setFormError(result.message || 'Something went wrong. Please try again.');
+      }
+    } catch (err) {
+      setFormError('Unable to send message right now. Please reach us directly via WhatsApp.');
+    } finally {
+      setFormSubmitting(false);
     }
   };
 
@@ -676,14 +705,25 @@ export default function Home() {
               </div>
 
               <div>
-                <button type="submit" className="btn-primary-dark">
-                  {formSubmitted ? "MESSAGE SENT ✓" : "SEND MESSAGE ↗"}
+                <button
+                  type="submit"
+                  className="btn-primary-dark"
+                  disabled={formSubmitting}
+                  style={formSubmitting ? { opacity: 0.7, cursor: 'not-allowed' } : {}}
+                >
+                  {formSubmitting ? "SENDING..." : formSubmitted ? "MESSAGE SENT ✓" : "SEND MESSAGE ↗"}
                 </button>
               </div>
 
               {formSubmitted && (
-                <p style={{ color: "var(--plum)", fontWeight: 700, fontSize: "14px" }}>
+                <p style={{ marginTop: '14px', color: 'var(--plum)', fontWeight: 700, fontSize: '14px' }}>
                   Thank you! Your note has been sent. We will get back to you shortly.
+                </p>
+              )}
+
+              {formError && (
+                <p style={{ marginTop: '14px', color: '#c0392b', fontWeight: 600, fontSize: '13.5px' }}>
+                  {formError}
                 </p>
               )}
             </form>
