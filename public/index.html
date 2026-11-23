@@ -2338,11 +2338,18 @@
         submitBtn.textContent = 'SENDING...';
 
         const formData = new FormData(form);
+        const payload = {
+          name: formData.get('name'),
+          email: formData.get('email'),
+          subject: formData.get('subject') || 'New Message from Hello Sakhee Website',
+          message: formData.get('message')
+        };
 
         try {
-          const response = await fetch('https://api.web3forms.com/submit', {
+          const response = await fetch('/api/contact', {
             method: 'POST',
-            body: formData
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload)
           });
           const res = await response.json();
           if (res.success) {

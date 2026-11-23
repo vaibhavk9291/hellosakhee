@@ -45,17 +45,13 @@ export default function Home() {
     setFormError('');
 
     try {
-      const payload = new FormData();
-      payload.append('access_key', '2428e84e-944c-4ad5-af7e-27e091216c42');
-      payload.append('name', formData.name);
-      payload.append('email', formData.email);
-      payload.append('subject', formData.subject || 'New Message from Hello Sakhee Website');
-      payload.append('message', formData.message);
-      payload.append('from_name', 'Hello Sakhee Website');
-
-      const response = await fetch('https://api.web3forms.com/submit', {
+      const response = await fetch('/api/contact', {
         method: 'POST',
-        body: payload
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify(formData)
       });
 
       const result = await response.json();
