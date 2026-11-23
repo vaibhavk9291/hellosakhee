@@ -15,8 +15,18 @@ const playfair = Playfair_Display({
 });
 
 export const metadata = {
-  title: "HelloSakhee - Your Life. Your Rules. Every Single Day.",
-  description: "Meet Sakhee - your AI companion who remembers everything, shows up every morning, and helps you become the woman you're already becoming.",
+  title: "Hello Sakhee — Your Daily Companion",
+  description: "A little space in every day to pause, reflect, grow, and come back to yourself.",
+  icons: {
+    icon: [
+      { url: "/sakhee-logo-icon.png", type: "image/png" },
+      { url: "/favicon.ico" }
+    ],
+    shortcut: ["/sakhee-logo-icon.png"],
+    apple: [
+      { url: "/sakhee-logo-icon.png" }
+    ]
+  }
 };
 
 export default function RootLayout({ children }) {
