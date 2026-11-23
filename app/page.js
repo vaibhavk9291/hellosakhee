@@ -39,7 +39,10 @@ export default function Home() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!formData.name || !formData.email) return;
+    if (!formData.name?.trim() || !formData.email?.trim()) {
+      setFormError('Please provide both your name and email address.');
+      return;
+    }
 
     setFormSubmitting(true);
     setFormError('');

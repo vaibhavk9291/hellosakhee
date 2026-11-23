@@ -2346,7 +2346,11 @@
         };
 
         try {
-          const response = await fetch('/api/contact', {
+          const endpoint = (window.location.protocol.startsWith('http') && (window.location.hostname.includes('hellosakhee.com') || (window.location.hostname === 'localhost' && window.location.port === '3000')))
+            ? '/api/contact'
+            : 'https://hellosakhee.com/api/contact';
+
+          const response = await fetch(endpoint, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(payload)
