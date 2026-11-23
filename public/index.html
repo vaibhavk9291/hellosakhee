@@ -1259,6 +1259,30 @@
       gap: 16px;
     }
 
+    .footer-legal-links {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .footer-legal-link {
+      color: rgba(255, 255, 255, 0.7);
+      font-size: 13px;
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    .footer-legal-link:hover {
+      color: var(--white);
+      text-decoration: underline;
+    }
+
+    .footer-legal-separator {
+      color: rgba(255, 255, 255, 0.4);
+      font-size: 11px;
+    }
+
     .footer-social-links {
       display: flex;
       align-items: center;
@@ -2151,6 +2175,11 @@
 
     <div class="footer-bottom">
       <div>© Hello Sakhee</div>
+      <div class="footer-legal-links">
+        <a href="/privacy" class="footer-legal-link">Privacy Policy</a>
+        <span class="footer-legal-separator" aria-hidden="true">•</span>
+        <a href="/terms" class="footer-legal-link">Terms of Service</a>
+      </div>
     </div>
   </footer>
 

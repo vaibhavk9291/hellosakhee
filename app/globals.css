@@ -1269,6 +1269,30 @@ a {
   gap: 16px;
 }
 
+.footer-legal-links {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.footer-legal-link {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 13px;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.footer-legal-link:hover {
+  color: var(--white);
+  text-decoration: underline;
+}
+
+.footer-legal-separator {
+  color: rgba(255, 255, 255, 0.4);
+  font-size: 11px;
+}
+
 .footer-social-links {
   display: flex;
   align-items: center;
@@ -1568,4 +1592,194 @@ a {
   letter-spacing: 0.3px;
   color: rgba(71, 38, 57, 0.6);
   margin-top: 22px;
+}
+
+/* 17. LEGAL PAGES (PRIVACY & TERMS) */
+.legal-page-wrapper {
+  min-height: calc(100vh - 200px);
+  background-color: var(--blush);
+  padding: 48px 4vw 80px;
+}
+
+.legal-container {
+  max-width: 880px;
+  margin: 0 auto;
+  background-color: var(--cream);
+  border: 1px solid var(--border-plum);
+  border-radius: 20px;
+  padding: 56px 48px;
+  box-shadow: 0 8px 32px rgba(71, 38, 57, 0.08);
+}
+
+.legal-header {
+  border-bottom: 2px solid var(--blush);
+  padding-bottom: 24px;
+  margin-bottom: 32px;
+}
+
+.legal-eyebrow {
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--terracotta);
+  margin-bottom: 8px;
+}
+
+.legal-title {
+  font-family: var(--font-serif);
+  font-size: 40px;
+  font-weight: 600;
+  color: var(--plum);
+  line-height: 1.2;
+  margin-bottom: 14px;
+}
+
+.legal-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  font-size: 14px;
+  color: rgba(71, 38, 57, 0.75);
+}
+
+.legal-toc {
+  background-color: var(--card-warm);
+  border: 1px solid var(--border-plum);
+  border-radius: 14px;
+  padding: 24px 28px;
+  margin-bottom: 38px;
+}
+
+.legal-toc-title {
+  font-family: var(--font-serif);
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--plum);
+  margin-bottom: 14px;
+}
+
+.legal-toc-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 10px 24px;
+}
+
+.legal-toc-link {
+  font-size: 13.5px;
+  color: var(--plum);
+  text-decoration: none;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.legal-toc-link:hover {
+  color: var(--terracotta);
+  transform: translateX(2px);
+}
+
+.legal-content {
+  font-size: 15.5px;
+  line-height: 1.75;
+  color: var(--plum-dark);
+}
+
+.legal-section {
+  margin-bottom: 38px;
+  scroll-margin-top: 100px;
+}
+
+.legal-section-title {
+  font-family: var(--font-serif);
+  font-size: 23px;
+  font-weight: 600;
+  color: var(--plum);
+  margin-bottom: 14px;
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  border-bottom: 1px solid rgba(71, 38, 57, 0.12);
+  padding-bottom: 8px;
+}
+
+.legal-section-title a {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.legal-section-title a:hover {
+  color: var(--terracotta);
+}
+
+.legal-content p {
+  margin-bottom: 14px;
+}
+
+.legal-content p:last-child {
+  margin-bottom: 0;
+}
+
+.legal-content ul,
+.legal-content ol {
+  margin: 12px 0 16px 24px;
+}
+
+.legal-content li {
+  margin-bottom: 8px;
+}
+
+.legal-highlight-box {
+  background-color: var(--card-warm);
+  border-left: 4px solid var(--terracotta);
+  border-radius: 0 10px 10px 0;
+  padding: 16px 20px;
+  margin: 20px 0;
+  font-size: 14.5px;
+  color: var(--plum);
+}
+
+.legal-placeholder {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  background-color: rgba(155, 83, 59, 0.12);
+  color: var(--terracotta);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-weight: 700;
+  font-size: 0.9em;
+}
+
+@media (max-width: 768px) {
+  .legal-page-wrapper {
+    padding: 24px 4vw 60px;
+  }
+
+  .legal-container {
+    padding: 32px 20px;
+    border-radius: 16px;
+  }
+
+  .legal-title {
+    font-size: 30px;
+  }
+
+  .legal-section-title {
+    font-size: 20px;
+  }
+
+  .legal-toc-list {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
 }

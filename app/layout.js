@@ -1,5 +1,6 @@
 import { Nunito, Playfair_Display } from "next/font/google";
 import "./globals.css";
+import Footer from "./components/Footer";
 
 const nunito = Nunito({
   variable: "--font-nunito",
@@ -32,7 +33,10 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en" suppressHydrationWarning className={`${nunito.variable} ${playfair.variable}`}>
-      <body suppressHydrationWarning>{children}</body>
+      <body suppressHydrationWarning>
+        {children}
+        <Footer />
+      </body>
     </html>
   );
 }
