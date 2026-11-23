@@ -1231,8 +1231,8 @@ a {
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
-  gap: 30px;
-  margin-bottom: 50px;
+  gap: 24px;
+  margin-bottom: 28px;
 }
 
 .footer-links {
@@ -1368,8 +1368,10 @@ a {
   }
 
   .footer-top {
-    flex-direction: column;
-    align-items: flex-start;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
   }
 }
 

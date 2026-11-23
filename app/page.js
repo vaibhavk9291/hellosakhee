@@ -737,22 +737,6 @@ export default function Home() {
             <img src="/logo-light-horizontal.png" alt="Hello Sakhee" className="footer-logo" />
           </Link>
 
-          <div className="footer-links">
-            <a href="#home" className="footer-link">Home</a>
-            <a href="#about" className="footer-link">About</a>
-            <a href="#experience" className="footer-link">The Experience</a>
-            <a href="#membership" className="footer-link">Membership</a>
-            <a href="#testimonials" className="footer-link">Testimonials</a>
-            <a href="#collaborations" className="footer-link">Collaborations</a>
-            <a href="#careers" className="footer-link">Careers</a>
-            <a href="#contact" className="footer-link">Contact</a>
-          </div>
-        </div>
-
-        <div className="footer-divider"></div>
-
-        <div className="footer-bottom">
-          <div>© Hello Sakhee</div>
           <div className="footer-social-links">
             <a
               href="https://www.instagram.com/hellosakhee?hvrq=MW56bmxsa3QxMG96cw=="
@@ -803,6 +787,12 @@ export default function Home() {
               </svg>
             </a>
           </div>
+        </div>
+
+        <div className="footer-divider"></div>
+
+        <div className="footer-bottom">
+          <div>© Hello Sakhee</div>
         </div>
       </footer>
 
