@@ -46,6 +46,42 @@ export default function Home() {
     }
   };
 
+  const handleContactFlow = () => {
+    const collabEl = document.getElementById('collaborations');
+    const careersEl = document.getElementById('careers');
+    const contactEl = document.getElementById('contact');
+
+    if (!collabEl || !careersEl || !contactEl) {
+      contactEl?.scrollIntoView({ behavior: 'smooth' });
+      return;
+    }
+
+    collabEl.scrollIntoView({ behavior: 'smooth' });
+
+    let isAborted = false;
+    const cancelFlow = () => {
+      isAborted = true;
+      window.removeEventListener('wheel', cancelFlow);
+      window.removeEventListener('touchstart', cancelFlow);
+      window.removeEventListener('keydown', cancelFlow);
+    };
+
+    window.addEventListener('wheel', cancelFlow, { passive: true, once: true });
+    window.addEventListener('touchstart', cancelFlow, { passive: true, once: true });
+    window.addEventListener('keydown', cancelFlow, { passive: true, once: true });
+
+    setTimeout(() => {
+      if (isAborted) return;
+      careersEl.scrollIntoView({ behavior: 'smooth' });
+
+      setTimeout(() => {
+        if (isAborted) return;
+        contactEl.scrollIntoView({ behavior: 'smooth' });
+        cancelFlow();
+      }, 1200);
+    }, 1200);
+  };
+
   return (
     <main>
       {/* 1. TOP NAVBAR */}
@@ -60,9 +96,17 @@ export default function Home() {
           <a href="#experience" className="nav-link" onClick={() => setMenuOpen(false)}>The Experience</a>
           <a href="#membership" className="nav-link" onClick={() => setMenuOpen(false)}>Membership</a>
           <a href="#testimonials" className="nav-link" onClick={() => setMenuOpen(false)}>Testimonials</a>
-          <a href="#collaborations" className="nav-link" onClick={() => setMenuOpen(false)}>Collaborations</a>
-          <a href="#careers" className="nav-link" onClick={() => setMenuOpen(false)}>Careers</a>
-          <a href="#contact" className="nav-link" onClick={() => setMenuOpen(false)}>Contact</a>
+          <a
+            href="#collaborations"
+            className="nav-link"
+            onClick={(e) => {
+              e.preventDefault();
+              setMenuOpen(false);
+              handleContactFlow();
+            }}
+          >
+            Contact
+          </a>
           <button
             type="button"
             className="nav-cta-btn"
@@ -71,7 +115,7 @@ export default function Home() {
               setDownloadModalOpen(true);
             }}
           >
-            GET HELLO SAKHEE ↗
+            DOWNLOAD ↗
           </button>
         </nav>
 
@@ -444,23 +488,39 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 9. COLLABORATIONS */}
-      <section className="collab-section" id="collaborations">
-        <div className="collab-grid">
-          <div className="collab-left">
-            <div className="eyebrow">COLLABORATIONS</div>
-            <h2 className="serif-heading collab-title">
-              Good things begin with a conversation.
+      {/* 9. ABOUT / FOUNDER */}
+      <section className="section-wrap founder-section">
+        <div className="founder-grid">
+          <div className="founder-left">
+            <div className="eyebrow">ABOUT / FOUNDER</div>
+            <h2 className="serif-heading founder-title">
+              Meet Bhavana – the Founder &amp; CEO.
             </h2>
+            <div className="founder-body">
+              <p>
+                We built Hello Sakhee with a belief that a woman’s relationship with herself deserves a place in everyday life—not only when everything else is done.
+              </p>
+              <p>
+                Our purpose is to make that connection feel practical and personal through small daily moments, a clear path forward, and space to share experiences with other women.
+              </p>
+              <p>
+                This is a companion, not another expectation to keep up with.
+              </p>
+            </div>
           </div>
 
-          <div className="collab-right">
-            <p className="collab-desc">
-              If you’re a brand, creator, community, or organisation whose work speaks to women’s everyday lives, we’d love to hear what you have in mind.
-            </p>
-            <a href="#contact" className="btn-primary-dark">
-              START A CONVERSATION ↗
-            </a>
+          <div className="founder-right">
+            <div className="founder-frame-wrap">
+              <div className="editorial-frame">
+                <img
+                  src="/founder-bhavana.png"
+                  alt="Bhavana Sharma, Founder and CEO of Hello Sakhee"
+                />
+              </div>
+              <p className="founder-caption">
+                Bhavana Sharma · Founder &amp; CEO
+              </p>
+            </div>
           </div>
         </div>
       </section>
@@ -497,39 +557,23 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 11. ABOUT / FOUNDER */}
-      <section className="section-wrap founder-section">
-        <div className="founder-grid">
-          <div className="founder-left">
-            <div className="eyebrow">ABOUT / FOUNDER</div>
-            <h2 className="serif-heading founder-title">
-              Meet Bhavana – the Founder &amp; CEO.
+      {/* 11. COLLABORATIONS */}
+      <section className="collab-section" id="collaborations">
+        <div className="collab-grid">
+          <div className="collab-left">
+            <div className="eyebrow">COLLABORATIONS</div>
+            <h2 className="serif-heading collab-title">
+              Good things begin with a conversation.
             </h2>
-            <div className="founder-body">
-              <p>
-                We built Hello Sakhee with a belief that a woman’s relationship with herself deserves a place in everyday life—not only when everything else is done.
-              </p>
-              <p>
-                Our purpose is to make that connection feel practical and personal through small daily moments, a clear path forward, and space to share experiences with other women.
-              </p>
-              <p>
-                This is a companion, not another expectation to keep up with.
-              </p>
-            </div>
           </div>
 
-          <div className="founder-right">
-            <div className="founder-frame-wrap">
-              <div className="editorial-frame">
-                <img
-                  src="/founder-bhavana.png"
-                  alt="Bhavana Sharma, Founder and CEO of Hello Sakhee"
-                />
-              </div>
-              <p className="founder-caption">
-                Bhavana Sharma · Founder &amp; CEO
-              </p>
-            </div>
+          <div className="collab-right">
+            <p className="collab-desc">
+              If you’re a brand, creator, community, or organisation whose work speaks to women’s everyday lives, we’d love to hear what you have in mind.
+            </p>
+            <a href="#contact" className="btn-primary-dark">
+              START A CONVERSATION ↗
+            </a>
           </div>
         </div>
       </section>

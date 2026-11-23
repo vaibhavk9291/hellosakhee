@@ -1056,7 +1056,7 @@
     /* 10. ABOUT / FOUNDER */
     .founder-section {
       background-color: var(--blush);
-      padding: 40px 7vw 90px;
+      padding: 80px 7vw 90px;
     }
 
     .founder-grid {
@@ -1569,10 +1569,8 @@
       <a href="#experience" class="nav-link">The Experience</a>
       <a href="#membership" class="nav-link">Membership</a>
       <a href="#testimonials" class="nav-link">Testimonials</a>
-      <a href="#collaborations" class="nav-link">Collaborations</a>
-      <a href="#careers" class="nav-link">Careers</a>
-      <a href="#contact" class="nav-link">Contact</a>
-      <button type="button" class="nav-cta-btn" id="openDownloadModalNav">GET HELLO SAKHEE ↗</button>
+      <a href="#collaborations" class="nav-link" id="navContactLink">Contact</a>
+      <button type="button" class="nav-cta-btn" id="openDownloadModalNav">DOWNLOAD ↗</button>
     </nav>
 
     <button class="mobile-menu-toggle" id="menuToggle" aria-label="Toggle navigation menu">
@@ -1931,48 +1929,7 @@
     </div>
   </section>
 
-  <!-- 9. COLLABORATIONS -->
-  <section class="collab-section" id="collaborations">
-    <div class="collab-grid">
-      <div class="collab-left">
-        <div class="eyebrow">COLLABORATIONS</div>
-        <h2 class="serif-heading collab-title">
-          Good things begin with a conversation.
-        </h2>
-      </div>
-
-      <div class="collab-right">
-        <p class="collab-desc">
-          If you’re a brand, creator, community, or organisation whose work speaks to women’s everyday lives, we’d love to hear what you have in mind.
-        </p>
-        <a href="#contact" class="btn-primary-dark">
-          START A CONVERSATION ↗
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- 10. MAKE SPACE / APP DOWNLOAD CTA -->
-  <section class="download-section">
-    <div class="download-inner">
-      <h2 class="serif-heading download-title">
-        Make a little space for yourself with Hello Sakhee.
-      </h2>
-      <p class="download-sub">
-        A daily companion for the woman you are, and the life you’re living right now.
-      </p>
-      <div class="download-buttons">
-        <a href="https://play.google.com/store/apps/details?id=com.hello.sakhee" target="_blank" rel="noopener noreferrer" class="btn-primary-dark download-toggle-btn" data-platform="android">
-          ANDROID
-        </a>
-        <a href="https://apps.apple.com/us/app/hello-sakhee/id6803506919" target="_blank" rel="noopener noreferrer" class="btn-outline-dark download-toggle-btn" data-platform="ios">
-          IOS
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- 11. ABOUT / FOUNDER -->
+  <!-- 9. ABOUT / FOUNDER -->
   <section class="section-wrap founder-section">
     <div class="founder-grid">
       <div class="founder-left">
@@ -2002,6 +1959,47 @@
             Bhavana Sharma · Founder &amp; CEO
           </p>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 10. MAKE SPACE / APP DOWNLOAD CTA -->
+  <section class="download-section">
+    <div class="download-inner">
+      <h2 class="serif-heading download-title">
+        Make a little space for yourself with Hello Sakhee.
+      </h2>
+      <p class="download-sub">
+        A daily companion for the woman you are, and the life you’re living right now.
+      </p>
+      <div class="download-buttons">
+        <a href="https://play.google.com/store/apps/details?id=com.hello.sakhee" target="_blank" rel="noopener noreferrer" class="btn-primary-dark download-toggle-btn" data-platform="android">
+          ANDROID
+        </a>
+        <a href="https://apps.apple.com/us/app/hello-sakhee/id6803506919" target="_blank" rel="noopener noreferrer" class="btn-outline-dark download-toggle-btn" data-platform="ios">
+          IOS
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 11. COLLABORATIONS -->
+  <section class="collab-section" id="collaborations">
+    <div class="collab-grid">
+      <div class="collab-left">
+        <div class="eyebrow">COLLABORATIONS</div>
+        <h2 class="serif-heading collab-title">
+          Good things begin with a conversation.
+        </h2>
+      </div>
+
+      <div class="collab-right">
+        <p class="collab-desc">
+          If you’re a brand, creator, community, or organisation whose work speaks to women’s everyday lives, we’d love to hear what you have in mind.
+        </p>
+        <a href="#contact" class="btn-primary-dark">
+          START A CONVERSATION ↗
+        </a>
       </div>
     </div>
   </section>
@@ -2249,6 +2247,53 @@
     window.addEventListener('keydown', (e) => {
       if (e.key === 'Escape') closeDownloadModal();
     });
+
+    // Contact Flow Logic
+    const navContactLink = document.getElementById('navContactLink');
+    if (navContactLink) {
+      navContactLink.addEventListener('click', (e) => {
+        e.preventDefault();
+        const navMenu = document.getElementById('navMenu');
+        if (navMenu) navMenu.classList.remove('open');
+        handleContactFlow();
+      });
+    }
+
+    function handleContactFlow() {
+      const collabEl = document.getElementById('collaborations');
+      const careersEl = document.getElementById('careers');
+      const contactEl = document.getElementById('contact');
+
+      if (!collabEl || !careersEl || !contactEl) {
+        if (contactEl) contactEl.scrollIntoView({ behavior: 'smooth' });
+        return;
+      }
+
+      collabEl.scrollIntoView({ behavior: 'smooth' });
+
+      let isAborted = false;
+      const cancelFlow = () => {
+        isAborted = true;
+        window.removeEventListener('wheel', cancelFlow);
+        window.removeEventListener('touchstart', cancelFlow);
+        window.removeEventListener('keydown', cancelFlow);
+      };
+
+      window.addEventListener('wheel', cancelFlow, { passive: true, once: true });
+      window.addEventListener('touchstart', cancelFlow, { passive: true, once: true });
+      window.addEventListener('keydown', cancelFlow, { passive: true, once: true });
+
+      setTimeout(() => {
+        if (isAborted) return;
+        careersEl.scrollIntoView({ behavior: 'smooth' });
+
+        setTimeout(() => {
+          if (isAborted) return;
+          contactEl.scrollIntoView({ behavior: 'smooth' });
+          cancelFlow();
+        }, 1200);
+      }, 1200);
+    }
 
     // Mobile navigation toggle
     const menuToggle = document.getElementById('menuToggle');
