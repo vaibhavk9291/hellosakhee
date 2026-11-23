@@ -3,7 +3,7 @@ import LegalHeader from '../components/LegalHeader';
 
 export const metadata = {
   title: 'Privacy Policy — Hello Sakhee',
-  description: 'Learn how Hello Sakhee collects, uses, and safeguards your personal data, including your Google user data and your rights under applicable law.',
+  description: 'Learn how Hello Sakhee collects, uses, and safeguards your personal data, including your Google user data, Meta Pixel usage, and your rights under applicable law.',
   robots: {
     index: true,
     follow: true,
@@ -20,8 +20,8 @@ export default function PrivacyPolicyPage() {
             <div className="legal-eyebrow">Legal & Compliance</div>
             <h1 className="legal-title">Privacy Policy</h1>
             <div className="legal-meta">
-              <span><strong>Last updated:</strong> <span className="legal-placeholder">[EFFECTIVE DATE]</span></span>
-              <span><strong>Contact:</strong> <span className="legal-placeholder">[CONTACT EMAIL]</span></span>
+              <span><strong>Last updated:</strong> November 23, 2026</span>
+              <span><strong>Contact:</strong> <a href="mailto:contact@hellosakhee.com" style={{ color: 'inherit' }}>contact@hellosakhee.com</a></span>
             </div>
           </header>
 
@@ -33,7 +33,7 @@ export default function PrivacyPolicyPage() {
               <li><a href="#data-collected" className="legal-toc-link">3. Information We Collect</a></li>
               <li><a href="#data-use" className="legal-toc-link">4. How We Use Your Data</a></li>
               <li><a href="#service-providers" className="legal-toc-link">5. Service Providers & Sub-processors</a></li>
-              <li><a href="#advertising-analytics" className="legal-toc-link">6. Advertising and Analytics</a></li>
+              <li><a href="#advertising-analytics" className="legal-toc-link">6. Advertising and Analytics (Meta Pixel)</a></li>
               <li><a href="#google-user-data" className="legal-toc-link">7. Google User Data</a></li>
               <li><a href="#retention-deletion" className="legal-toc-link">8. Data Retention & Deletion</a></li>
               <li><a href="#security" className="legal-toc-link">9. Security</a></li>
@@ -54,7 +54,7 @@ export default function PrivacyPolicyPage() {
                 Hello Sakhee also offers an optional paid subscription titled "Hello Sakhee Plus" (available on a monthly or yearly billing basis) through the Apple App Store and Google Play Store, along with promotional and referral code mechanisms.
               </p>
               <p>
-                The service is operated by <strong>Intellobyte Tech Solutions</strong>, located in Pune, India, for the client <span className="legal-placeholder">[CLIENT/COMPANY NAME]</span> (legal entity: <span className="legal-placeholder">[COMPANY LEGAL NAME]</span>).
+                The service is owned and operated on behalf of <strong>Raamika Smart Solutions Private Limited</strong> by Intellobyte Tech Solutions, Pune, India.
               </p>
             </section>
 
@@ -137,16 +137,19 @@ export default function PrivacyPolicyPage() {
             </section>
 
             <section id="advertising-analytics" className="legal-section">
-              <h2 className="legal-section-title"><a href="#advertising-analytics">6. Advertising and Analytics</a></h2>
+              <h2 className="legal-section-title"><a href="#advertising-analytics">6. Advertising and Analytics (Meta Pixel)</a></h2>
               <p>
-                The Hello Sakhee mobile application currently does not include third-party advertising tracking or commercial behavioral ad networks.
+                To measure the effectiveness of our marketing campaigns, understand user engagement, and display relevant announcements for Hello Sakhee on social platforms, our website utilizes the <strong>Meta Pixel (Pixel ID: 1652211502434417)</strong> operated by Meta Platforms, Inc. (1601 Willow Road, Menlo Park, CA 94025, USA).
               </p>
-              <div className="legal-highlight-box">
-                <span className="legal-placeholder">[ADD IF A META/ADS SDK IS ADDED]</span>
-                <p style={{ marginTop: '8px' }}>
-                  If commercial advertising, attribution, or third-party marketing SDKs are incorporated into future releases of the app, this section will be updated with explicit disclosures, provider names, and opt-out controls prior to activation.
-                </p>
-              </div>
+              <p>
+                <strong>How Meta Pixel Works:</strong> The Meta Pixel is a snippet of code embedded on our website that allows us to track actions visitors take (such as viewing web pages, opening app download prompts, or submitting contact inquiries). This data is transmitted to and processed by Meta to optimize advertisement delivery, create targeted audiences, and measure advertising conversion rates across Facebook and Instagram.
+              </p>
+              <p>
+                <strong>Data Processed:</strong> Meta may collect technical information including HTTP headers, IP address, device and browser identifiers, pixel ID, and cookie information. This data is handled in accordance with Meta’s Data Policy (available at <a href="https://www.facebook.com/about/privacy/" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--terracotta)', fontWeight: 600 }}>facebook.com/about/privacy</a>).
+              </p>
+              <p>
+                <strong>Opt-Out Controls:</strong> You can manage or disable personalized advertising by adjusting your preferences in your Facebook Ad Settings (<a href="https://www.facebook.com/adpreferences" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--terracotta)', fontWeight: 600 }}>facebook.com/adpreferences</a>) or via industry opt-out portals such as the Digital Advertising Alliance (<a href="https://www.aboutads.info/choices" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--terracotta)', fontWeight: 600 }}>aboutads.info/choices</a>).
+              </p>
             </section>
 
             <section id="google-user-data" className="legal-section">
@@ -180,10 +183,10 @@ export default function PrivacyPolicyPage() {
                 <strong>In-App Account Deletion:</strong> You have the complete right and ability to permanently delete your account and all associated personal content at any time directly inside the mobile app by navigating to <strong>Settings &gt; Delete account</strong>. Initiating this deletion will permanently purge your profile, AI conversation history, community posts, comments, and media from our active database. This action is irreversible.
               </p>
               <p>
-                <strong>Manual Requests:</strong> You may also email our team at <span className="legal-placeholder">[CONTACT EMAIL]</span> to request access to, correction of, or deletion of your personal data.
+                <strong>Manual Requests:</strong> You may also email our team at <a href="mailto:contact@hellosakhee.com" style={{ color: 'var(--terracotta)', fontWeight: 600 }}>contact@hellosakhee.com</a> to request access to, correction of, or deletion of your personal data.
               </p>
               <p>
-                Residual diagnostic logs and backup archives that contain encrypted operational snapshots are routinely overwritten and permanently purged within <span className="legal-placeholder">[RETENTION PERIOD]</span>.
+                Residual diagnostic logs and backup archives that contain encrypted operational snapshots are routinely overwritten and permanently purged within <strong>90 days</strong>.
               </p>
             </section>
 
@@ -200,10 +203,10 @@ export default function PrivacyPolicyPage() {
             <section id="children" className="legal-section">
               <h2 className="legal-section-title"><a href="#children">10. Children's Privacy</a></h2>
               <p>
-                Hello Sakhee is designed strictly for adults aged <span className="legal-placeholder">[MINIMUM AGE]</span> and older. The application is not directed at, marketed to, or intended for use by children.
+                Hello Sakhee is designed strictly for adults aged <strong>18</strong> and older. The application is not directed at, marketed to, or intended for use by children.
               </p>
               <p>
-                We do not knowingly collect personal data from individuals under the age of <span className="legal-placeholder">[MINIMUM AGE]</span>. If we discover or are notified that an underage user has registered an account or supplied personal data, we will promptly delete that account and all related data from our systems.
+                We do not knowingly collect personal data from individuals under the age of 18. If we discover or are notified that an underage user has registered an account or supplied personal data, we will promptly delete that account and all related data from our systems.
               </p>
             </section>
 
@@ -219,8 +222,9 @@ export default function PrivacyPolicyPage() {
                 <strong>Grievance Officer:</strong> In accordance with Indian law, our appointed Grievance Officer can be contacted for questions, complaints, or enforcement of data rights:
               </p>
               <div className="legal-highlight-box">
-                <strong>Grievance Officer:</strong> <span className="legal-placeholder">[GRIEVANCE OFFICER NAME AND EMAIL]</span><br />
-                <strong>Address:</strong> Intellobyte Tech Solutions, Pune, India (Registered Address: <span className="legal-placeholder">[REGISTERED ADDRESS]</span>)
+                <strong>Grievance Officer:</strong> Raamika Smart Solutions Private Limited<br />
+                <strong>Email:</strong> <a href="mailto:contact@hellosakhee.com" style={{ color: 'var(--terracotta)', fontWeight: 600 }}>contact@hellosakhee.com</a><br />
+                <strong>Registered Office:</strong> 11D, Floor 4, Cabin 4, Sampat Farms, Bicholi Mardana, Indore, Madhya Pradesh - 452016
               </div>
             </section>
 
@@ -238,10 +242,10 @@ export default function PrivacyPolicyPage() {
               <h2 className="legal-section-title"><a href="#contact">13. Contact & Operator Details</a></h2>
               <p>If you have any questions, concerns, or requests regarding this Privacy Policy or your personal information, please contact us:</p>
               <ul>
-                <li><strong>Email:</strong> <span className="legal-placeholder">[CONTACT EMAIL]</span></li>
-                <li><strong>Operator:</strong> Intellobyte Tech Solutions, Pune, India</li>
-                <li><strong>Operating for Client:</strong> <span className="legal-placeholder">[CLIENT/COMPANY NAME]</span> (<span className="legal-placeholder">[COMPANY LEGAL NAME]</span>)</li>
-                <li><strong>Registered Address:</strong> <span className="legal-placeholder">[REGISTERED ADDRESS]</span></li>
+                <li><strong>Email:</strong> <a href="mailto:contact@hellosakhee.com" style={{ color: 'var(--terracotta)', fontWeight: 600 }}>contact@hellosakhee.com</a></li>
+                <li><strong>Company:</strong> Raamika Smart Solutions Private Limited</li>
+                <li><strong>Registered Office Address:</strong> 11D, Floor 4, Cabin 4, Sampat Farms, Bicholi Mardana, Indore, Madhya Pradesh - 452016</li>
+                <li><strong>Technical Operator:</strong> Intellobyte Tech Solutions, Pune, India</li>
               </ul>
             </section>
           </div>

@@ -20,8 +20,8 @@ export default function TermsOfServicePage() {
             <div className="legal-eyebrow">Legal & Compliance</div>
             <h1 className="legal-title">Terms of Service</h1>
             <div className="legal-meta">
-              <span><strong>Last updated:</strong> <span className="legal-placeholder">[EFFECTIVE DATE]</span></span>
-              <span><strong>Contact:</strong> <span className="legal-placeholder">[CONTACT EMAIL]</span></span>
+              <span><strong>Last updated:</strong> November 23, 2026</span>
+              <span><strong>Contact:</strong> <a href="mailto:contact@hellosakhee.com" style={{ color: 'inherit' }}>contact@hellosakhee.com</a></span>
             </div>
           </header>
 
@@ -49,7 +49,7 @@ export default function TermsOfServicePage() {
             <section id="acceptance" className="legal-section">
               <h2 className="legal-section-title"><a href="#acceptance">1. Acceptance of Terms</a></h2>
               <p>
-                These Terms of Service ("Terms") constitute a legally binding agreement between you and <strong>Intellobyte Tech Solutions</strong>, Pune, India, operating on behalf of its client <span className="legal-placeholder">[CLIENT/COMPANY NAME]</span> (legal entity: <span className="legal-placeholder">[COMPANY LEGAL NAME]</span>) ("Hello Sakhee", "we", "us", or "our").
+                These Terms of Service ("Terms") constitute a legally binding agreement between you and <strong>Raamika Smart Solutions Private Limited</strong> (operated by Intellobyte Tech Solutions, Pune, India) ("Hello Sakhee", "we", "us", or "our").
               </p>
               <p>
                 By downloading, accessing, browsing, or using the Hello Sakhee mobile application (on iOS or Android) or the website (<a href="https://hellosakhee.com" style={{ color: 'var(--terracotta)', fontWeight: 600 }}>hellosakhee.com</a>), you acknowledge that you have read, understood, and agree to be bound by these Terms and our Privacy Policy. If you do not agree to these Terms, you must not access or use the service.
@@ -59,10 +59,10 @@ export default function TermsOfServicePage() {
             <section id="eligibility" className="legal-section">
               <h2 className="legal-section-title"><a href="#eligibility">2. Eligibility & Account Responsibility</a></h2>
               <p>
-                You must be at least <span className="legal-placeholder">[MINIMUM AGE]</span> years of age to register an account or use Hello Sakhee. The service is designed and intended exclusively for adult users.
+                You must be at least <strong>18</strong> years of age to register an account or use Hello Sakhee. The service is designed and intended exclusively for adult users.
               </p>
               <p>
-                Accounts are registered through third-party authentication (Google or Apple sign-in). You are solely responsible for maintaining the security of your device and login credentials, and for all activities that take place under your account. You agree to notify us immediately at <span className="legal-placeholder">[CONTACT EMAIL]</span> if you suspect unauthorized access to your account.
+                Accounts are registered through third-party authentication (Google or Apple sign-in). You are solely responsible for maintaining the security of your device and login credentials, and for all activities that take place under your account. You agree to notify us immediately at <a href="mailto:contact@hellosakhee.com" style={{ color: 'var(--terracotta)', fontWeight: 600 }}>contact@hellosakhee.com</a> if you suspect unauthorized access to your account.
               </p>
             </section>
 
@@ -115,7 +115,7 @@ export default function TermsOfServicePage() {
                 You retain ownership of any text, photos, videos, comments, or materials that you post, submit, or transmit within the community circles ("User Content").
               </p>
               <p>
-                By posting User Content, you grant Hello Sakhee and Intellobyte Tech Solutions a worldwide, non-exclusive, royalty-free, transferable license to host, display, reproduce, adapt, and distribute your User Content solely as necessary to operate, improve, and provide the service to you and other community members. You represent and warrant that you own or have all necessary rights to submit the content you publish.
+                By posting User Content, you grant Hello Sakhee, Raamika Smart Solutions Private Limited, and Intellobyte Tech Solutions a worldwide, non-exclusive, royalty-free, transferable license to host, display, reproduce, adapt, and distribute your User Content solely as necessary to operate, improve, and provide the service to you and other community members. You represent and warrant that you own or have all necessary rights to submit the content you publish.
               </p>
             </section>
 
@@ -153,7 +153,7 @@ export default function TermsOfServicePage() {
             <section id="intellectual-property" className="legal-section">
               <h2 className="legal-section-title"><a href="#intellectual-property">9. Intellectual Property</a></h2>
               <p>
-                The Hello Sakhee application, website, logos, trademarks, visual branding, illustrations, user interface design, software code, daily task libraries, and proprietary texts are the sole and exclusive intellectual property of Hello Sakhee and Intellobyte Tech Solutions.
+                The Hello Sakhee application, website, logos, trademarks, visual branding, illustrations, user interface design, software code, daily task libraries, and proprietary texts are the sole and exclusive intellectual property of Raamika Smart Solutions Private Limited and its operating partners.
               </p>
               <p>
                 You may not copy, reverse engineer, decompile, modify, distribute, or create derivative works from any part of our platform without prior written authorization.
@@ -166,14 +166,14 @@ export default function TermsOfServicePage() {
                 The service is provided on an "AS IS" and "AS AVAILABLE" basis without warranties of any kind, whether express, statutory, or implied, including but not limited to implied warranties of merchantability, fitness for a particular purpose, or non-infringement.
               </p>
               <p>
-                To the maximum extent permitted by applicable law, in no event shall Intellobyte Tech Solutions, <span className="legal-placeholder">[CLIENT/COMPANY NAME]</span>, or their respective directors, employees, or partners be liable for any indirect, incidental, special, consequential, or punitive damages, or any loss of profits, data, goodwill, or personal distress arising from or connected to your access to or use of (or inability to use) Hello Sakhee.
+                To the maximum extent permitted by applicable law, in no event shall Raamika Smart Solutions Private Limited, Intellobyte Tech Solutions, or their respective directors, employees, or partners be liable for any indirect, incidental, special, consequential, or punitive damages, or any loss of profits, data, goodwill, or personal distress arising from or connected to your access to or use of (or inability to use) Hello Sakhee.
               </p>
             </section>
 
             <section id="termination" className="legal-section">
               <h2 className="legal-section-title"><a href="#termination">11. Termination & Account Deletion</a></h2>
               <p>
-                You are free to stop using Hello Sakhee at any time. You can permanently delete your account and all associated content directly within the application under <strong>Settings &gt; Delete account</strong>, or by emailing <span className="legal-placeholder">[CONTACT EMAIL]</span>.
+                You are free to stop using Hello Sakhee at any time. You can permanently delete your account and all associated content directly within the application under <strong>Settings &gt; Delete account</strong>, or by emailing <a href="mailto:contact@hellosakhee.com" style={{ color: 'var(--terracotta)', fontWeight: 600 }}>contact@hellosakhee.com</a>.
               </p>
               <p>
                 We reserve the right to suspend, restrict, or terminate your account or access to the service at our sole discretion, without prior notice, if you breach these Terms, engage in harassment, or pose a safety or legal liability to other users or our platform.
@@ -196,7 +196,7 @@ export default function TermsOfServicePage() {
                 These Terms and any disputes or claims arising out of or in connection with them or their subject matter shall be governed by and construed in accordance with the laws of <strong>India</strong>.
               </p>
               <p>
-                Any legal action, suit, or proceeding arising under or relating to these Terms shall be subject to the exclusive jurisdiction of the competent courts located in <span className="legal-placeholder">[CITY, e.g. Pune]</span>, Maharashtra, India.
+                Any legal action, suit, or proceeding arising under or relating to these Terms shall be subject to the exclusive jurisdiction of the competent courts located in <strong>Indore, Madhya Pradesh</strong>, India.
               </p>
             </section>
 
@@ -204,10 +204,10 @@ export default function TermsOfServicePage() {
               <h2 className="legal-section-title"><a href="#contact">14. Contact Information</a></h2>
               <p>For questions, support, notices, or inquiries concerning these Terms of Service, please reach out to us:</p>
               <ul>
-                <li><strong>Email:</strong> <span className="legal-placeholder">[CONTACT EMAIL]</span></li>
-                <li><strong>Operator:</strong> Intellobyte Tech Solutions, Pune, India</li>
-                <li><strong>Operating for Client:</strong> <span className="legal-placeholder">[CLIENT/COMPANY NAME]</span> (<span className="legal-placeholder">[COMPANY LEGAL NAME]</span>)</li>
-                <li><strong>Registered Address:</strong> <span className="legal-placeholder">[REGISTERED ADDRESS]</span></li>
+                <li><strong>Email:</strong> <a href="mailto:contact@hellosakhee.com" style={{ color: 'var(--terracotta)', fontWeight: 600 }}>contact@hellosakhee.com</a></li>
+                <li><strong>Company:</strong> Raamika Smart Solutions Private Limited</li>
+                <li><strong>Registered Office Address:</strong> 11D, Floor 4, Cabin 4, Sampat Farms, Bicholi Mardana, Indore, Madhya Pradesh - 452016</li>
+                <li><strong>Technical Operator:</strong> Intellobyte Tech Solutions, Pune, India</li>
               </ul>
             </section>
           </div>

@@ -32,6 +32,17 @@ export default function Home() {
     };
   }, [downloadModalOpen]);
 
+  const trackMetaEvent = (eventName, params = {}) => {
+    if (typeof window !== 'undefined' && typeof window.fbq === 'function') {
+      window.fbq('track', eventName, params);
+    }
+  };
+
+  const openDownloadModal = () => {
+    trackMetaEvent('ViewContent', { content_name: 'Download Choice Modal' });
+    setDownloadModalOpen(true);
+  };
+
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
@@ -60,6 +71,10 @@ export default function Home() {
       const result = await response.json();
       if (result.success) {
         setFormSubmitted(true);
+        trackMetaEvent('Lead', {
+          content_name: 'Website Contact Form',
+          status: 'success'
+        });
         setFormData({ name: '', email: '', subject: '', message: '' });
         setTimeout(() => {
           setFormSubmitted(false);
@@ -140,7 +155,7 @@ export default function Home() {
             className="nav-cta-btn"
             onClick={() => {
               setMenuOpen(false);
-              setDownloadModalOpen(true);
+              openDownloadModal();
             }}
           >
             DOWNLOAD ↗
@@ -178,7 +193,7 @@ export default function Home() {
               <button
                 type="button"
                 className="btn-primary-dark"
-                onClick={() => setDownloadModalOpen(true)}
+                onClick={openDownloadModal}
               >
                 Download Now ↗
               </button>
