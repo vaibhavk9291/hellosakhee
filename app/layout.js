@@ -34,7 +34,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en" suppressHydrationWarning className={`${nunito.variable} ${playfair.variable}`}>
-      <head>
+      <body suppressHydrationWarning>
         <Script
           id="meta-pixel"
           strategy="afterInteractive"
@@ -62,8 +62,6 @@ export default function RootLayout({ children }) {
             alt=""
           />
         </noscript>
-      </head>
-      <body suppressHydrationWarning>
         {children}
         <Footer />
       </body>

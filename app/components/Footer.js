@@ -61,8 +61,6 @@ export default function Footer() {
         </div>
       </div>
 
-      <div className="footer-divider"></div>
-
       <div className="footer-bottom">
         <div>© Hello Sakhee</div>
         <div className="footer-legal-links">
